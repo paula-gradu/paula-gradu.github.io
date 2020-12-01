@@ -1,9 +1,9 @@
 <img src="/assets/photo_1.jpg" width="120" align="right"/>
 
-## Xinyi Chen
-xinyic@princeton.edu
+## Paula Gradu
+pgradu@princeton.edu
 
-I'm a Ph.D. student in the Department of Computer Science at Princeton University. I'm very fortunate to be advised by Prof. [Elad Hazan](https://www.cs.princeton.edu/~ehazan/). I'm interested in algorithms for machine learning, specifically online learning and nonconvex optimization.
+I'm a Ph.D. student in the Department of Mathematics at Princeton University. I'm very fortunate to be advised by Prof. [Elad Hazan](https://www.cs.princeton.edu/~ehazan/). I am interested in the intersection of reinforcement learning in differentiable, physics-based environments and control. My main focus is theoretical, in that I want to develop algorithms with provable guarantees, but the ultimate goal is for these to also translate to practice, for example, to ensure better/safer control of medical apparatus, or more scalable psychotherapy via RL agents.
 
 
 ### Publications
