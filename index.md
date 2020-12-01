@@ -1,4 +1,4 @@
-[comment]: <img src="/assets/photo_1.jpg" width="120" align="right"/>
+[comment]: <img src="/assets/photo_1.jpg" width="60" align="right"/>
 
 ## Paula Gradu
 pgradu@princeton.edu
