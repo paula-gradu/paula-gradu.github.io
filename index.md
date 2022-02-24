@@ -8,11 +8,15 @@ I'm a student in the Department of Mathematics at Princeton University. I'm very
 
 ### Publications
 #### Conferences
+- [**Online Control of Unknown Time-Varying Dynamical Systems.**](https://proceedings.neurips.cc/paper/2021/hash/856b503e276cc491e7e6e0ac1b9f4b17-Abstract.html) *NeurIPS 2021.* With Edgar Minasyan, Max Simchowitz and Elad Hazan.
+
 - [**Non-Stochastic Control with Bandit Feedback.**](https://arxiv.org/abs/2008.05523) *NeurIPS 2020.* With John Hallman, and Elad Hazan.
 
 - [**SyntaxNet for Romanian: Results and Potential.**](http://consilr.info.uaic.ro/2016/Consilr_2016.pdf) *Proceedings of the 12th International Conference Linguistic Resources and Tools for Processing the Romanian Language, 2016.* With Radu Ion.
 
 #### Workshops
+- [**Machine Learning for Mechanical Ventilation Control.**](https://arxiv.org/abs/2102.06779) *(extended abstract) ML4H 2021.* With Daniel Suo, Naman Agarwal, Wenhan Xia, Xinyi Chen, Udaya Ghai, Alexander Yu, Karan Singh, Cyril Zhang, Edgar Minasyan, Julienne LaChance, Tom Zajdel, Manuel Schottdorf, Daniel Cohen, and Elad Hazan.
+
 - [**Adaptive Regret for Control of Time-Varying Dynamics.**](https://arxiv.org/abs/2007.04393) *Theoretical Foundations of Reinforcement Learning Workshop, ICML 2020.* With Elad Hazan, and Edgar Minasyan.
 
 - **DELUCA - A Differentiable Control Library: Environments, Methods, and Benchmarking.** *Differentiable Computer Vision, Graphics, and Physics in Machine Learning Workshop, NeurIPS 2020.* With John Hallman, Daniel Suo, Alex Yu, Naman Agarwal, Udaya Ghai, Karan Singh, Cyril Zhang, Anirudha Majumdar, and Elad Hazan.
