@@ -19,4 +19,4 @@ I'm a student in the Department of Mathematics at Princeton University. I'm very
 
 - [**Adaptive Regret for Control of Time-Varying Dynamics.**](https://arxiv.org/abs/2007.04393) *Theoretical Foundations of Reinforcement Learning Workshop, ICML 2020.* With Elad Hazan, and Edgar Minasyan.
 
-- **DELUCA - A Differentiable Control Library: Environments, Methods, and Benchmarking.** *Differentiable Computer Vision, Graphics, and Physics in Machine Learning Workshop, NeurIPS 2020.* With John Hallman, Daniel Suo, Alex Yu, Naman Agarwal, Udaya Ghai, Karan Singh, Cyril Zhang, Anirudha Majumdar, and Elad Hazan.
+- [**DELUCA - A Differentiable Control Library: Environments, Methods, and Benchmarking.**](https://arxiv.org/abs/2102.09968) *Differentiable Computer Vision, Graphics, and Physics in Machine Learning Workshop, NeurIPS 2020.* With John Hallman, Daniel Suo, Alex Yu, Naman Agarwal, Udaya Ghai, Karan Singh, Cyril Zhang, Anirudha Majumdar, and Elad Hazan.
