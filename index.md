@@ -1,9 +1,9 @@
 [comment]: <img src="/assets/photo_1.jpg" width="60" align="right"/>
 
 ## Paula Gradu
-pgradu@princeton.edu
+pgradu@berkeley.edu
 
-I'm a student in the Department of Mathematics at Princeton University. I'm very fortunate to be advised by Prof. [Elad Hazan](https://www.cs.princeton.edu/~ehazan/). I am interested in the intersection of reinforcement learning in differentiable, physics-based environments and control. My main focus is theoretical, in that I want to develop algorithms with provable guarantees, but the ultimate goal is for these to also translate to practice, for example, to ensure better/safer control of medical apparatus or dynamic treatments.
+I'm a first year graduate student in EECS at UC Berkeley. Before, I was very fortunate to be advised by Prof. [Elad Hazan](https://www.cs.princeton.edu/~ehazan/) at Princeton. I am interested in the intersection of reinforcement learning in differentiable, physics-based environments and control. My main focus is theoretical, in that I want to develop algorithms with provable guarantees, but the ultimate goal is for these to also translate to practice, for example, to ensure better/safer control of medical apparatus or dynamic treatments.
 
 
 ### My Research
