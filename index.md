@@ -6,7 +6,7 @@ pgradu@princeton.edu
 I'm a student in the Department of Mathematics at Princeton University. I'm very fortunate to be advised by Prof. [Elad Hazan](https://www.cs.princeton.edu/~ehazan/). I am interested in the intersection of reinforcement learning in differentiable, physics-based environments and control. My main focus is theoretical, in that I want to develop algorithms with provable guarantees, but the ultimate goal is for these to also translate to practice, for example, to ensure better/safer control of medical apparatus or dynamic treatments.
 
 
-### Publications
+### My Research
 #### Conferences
 - [**Online Control of Unknown Time-Varying Dynamical Systems.**](https://proceedings.neurips.cc/paper/2021/hash/856b503e276cc491e7e6e0ac1b9f4b17-Abstract.html) *NeurIPS 2021.* With Edgar Minasyan, Max Simchowitz and Elad Hazan.
 
