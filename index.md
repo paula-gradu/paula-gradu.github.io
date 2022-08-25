@@ -3,11 +3,16 @@
 ## Paula Gradu
 pgradu@berkeley.edu
 
-I'm a first year graduate student in EECS at UC Berkeley. Before, I was very fortunate to be advised by Prof. [Elad Hazan](https://www.cs.princeton.edu/~ehazan/) at Princeton. I am interested in the intersection of reinforcement learning in differentiable, physics-based environments and control. My main focus is theoretical, in that I want to develop algorithms with provable guarantees, but the ultimate goal is for these to also translate to practice, for example, to ensure better/safer control of medical apparatus or dynamic treatments.
-
+I'm a second year graduate student in EECS at UC Berkeley, advised by Ben Recht and Michael Jordan. Before, I was very fortunate to be advised by Prof. [Elad Hazan](https://www.cs.princeton.edu/~ehazan/) at Princeton. 
 
 ### My Research
+
+#### Preprints
+- [**Valid Inference after Causal Discovery.**](https://arxiv.org/abs/2208.05949). With Tijana Zrnic, Yixin Wang, Michael I. Jordan.
+
 #### Conferences
+- [**Lyapunov Density Models: Constraining Distribution Shift in Learning-Based Control.**] *ICML 2022.* With Katie Kang, Jason Choi, Michael Janner, Claire Tomlin, Sergey Levine.
+
 - [**Online Control of Unknown Time-Varying Dynamical Systems.**](https://proceedings.neurips.cc/paper/2021/hash/856b503e276cc491e7e6e0ac1b9f4b17-Abstract.html) *NeurIPS 2021.* With Edgar Minasyan, Max Simchowitz and Elad Hazan.
 
 - [**Non-Stochastic Control with Bandit Feedback.**](https://arxiv.org/abs/2008.05523) *NeurIPS 2020.* With John Hallman, and Elad Hazan.
