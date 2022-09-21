@@ -3,7 +3,7 @@
 ## Paula Gradu
 pgradu@berkeley.edu
 
-I'm a second year graduate student in EECS at UC Berkeley, advised by Ben Recht and Michael Jordan. Before, I was very fortunate to be advised by Prof. [Elad Hazan](https://www.cs.princeton.edu/~ehazan/) at Princeton. 
+I'm a second year graduate student in EECS at UC Berkeley. Before, I was very fortunate to be advised by Prof. [Elad Hazan](https://www.cs.princeton.edu/~ehazan/) at Princeton. 
 
 ### My Research
 
