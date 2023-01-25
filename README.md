@@ -10,7 +10,7 @@ I'm a second year graduate student in EECS at UC Berkeley advised by Ben Recht a
 ### My Research
 
 #### Preprints
-- [**Valid Inference after Causal Discovery.**](https://arxiv.org/abs/2208.05949). With Tijana Zrnic, Yixin Wang, Michael I. Jordan.
+- [**Valid Inference after Causal Discovery.**](https://arxiv.org/abs/2208.05949) With Tijana Zrnic, Yixin Wang, Michael I. Jordan.
 
 #### Conferences
 - [**Lyapunov Density Models: Constraining Distribution Shift in Learning-Based Control.**](https://arxiv.org/abs/2206.10524) *ICML 2022.* With Katie Kang, Jason Choi, Michael Janner, Claire Tomlin, Sergey Levine.
