@@ -5,17 +5,21 @@
 ## Paula Gradu
 pgradu@berkeley.edu
 
-I'm a second year graduate student in EECS at UC Berkeley advised by [Ben Recht](http://people.eecs.berkeley.edu/~brecht/index.html) and [Michael Jordan](http://people.eecs.berkeley.edu/~jordan/). Before, I was very fortunate to be advised by Prof. [Elad Hazan](https://www.cs.princeton.edu/~ehazan/) at Princeton. 
+I'm a third year graduate student in EECS at UC Berkeley advised by [Ben Recht](http://people.eecs.berkeley.edu/~brecht/index.html) and [Michael Jordan](http://people.eecs.berkeley.edu/~jordan/). Before, I was very fortunate to be advised by [Elad Hazan](https://www.cs.princeton.edu/~ehazan/) (at Princeton) who taught me the ways of research. 
 
 ### My Research
 
 #### Preprints
-- [**Valid Inference after Causal Discovery.**](https://arxiv.org/abs/2208.05949) With Tijana Zrnic, Yixin Wang, Michael I. Jordan.
+- [**Valid Inference after Causal Discovery.**](https://arxiv.org/abs/2208.05949) With Tijana Zrnic, Yixin Wang, and Michael I. Jordan.
+
+- [**CLIP-OGD: An Experimental Design for Adaptive Neyman Allocation in Sequential Experiments**](https://arxiv.org/abs/2305.17187) With Jessica Dai, and Chris Harshaw.
 
 #### Conferences
-- [**Lyapunov Density Models: Constraining Distribution Shift in Learning-Based Control.**](https://arxiv.org/abs/2206.10524) *ICML 2022.* With Katie Kang, Jason Choi, Michael Janner, Claire Tomlin, Sergey Levine.
+- [**Projection-free Adaptive Regret with Membership Oracles**](https://arxiv.org/pdf/2211.12638.pdf) *ALT 2023.* With Zhou Lu, Nataly Brukhim, and Elad Hazan.
+  
+- [**Lyapunov Density Models: Constraining Distribution Shift in Learning-Based Control.**](https://arxiv.org/abs/2206.10524) *ICML 2022.* With Katie Kang, Jason Choi, Michael Janner, Claire Tomlin, and Sergey Levine.
 
-- [**Online Control of Unknown Time-Varying Dynamical Systems.**](https://proceedings.neurips.cc/paper/2021/hash/856b503e276cc491e7e6e0ac1b9f4b17-Abstract.html) *NeurIPS 2021.* With Edgar Minasyan, Max Simchowitz and Elad Hazan.
+- [**Online Control of Unknown Time-Varying Dynamical Systems.**](https://proceedings.neurips.cc/paper/2021/hash/856b503e276cc491e7e6e0ac1b9f4b17-Abstract.html) *NeurIPS 2021.* With Edgar Minasyan, Max Simchowitz, and Elad Hazan.
 
 - [**Adaptive Regret for Control of Time-Varying Dynamics.**](https://arxiv.org/abs/2007.04393) *L4DC 2023.* With Elad Hazan, and Edgar Minasyan.
 
