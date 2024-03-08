@@ -12,9 +12,11 @@ I'm a third year graduate student in EECS at UC Berkeley advised by [Ben Recht](
 #### Preprints
 - [**Valid Inference after Causal Discovery.**](https://arxiv.org/abs/2208.05949) With Tijana Zrnic, Yixin Wang, and Michael I. Jordan.
 
-- [**CLIP-OGD: An Experimental Design for Adaptive Neyman Allocation in Sequential Experiments**](https://arxiv.org/abs/2305.17187) With Jessica Dai, and Chris Harshaw.
-
 #### Conferences
+- [**Online Control For Adaptive Tapering Of Medications**](https://arxiv.org/pdf/2309.11629.pdf) *CDC 2023.* With Ben Recht.
+  
+- [**CLIP-OGD: An Experimental Design for Adaptive Neyman Allocation in Sequential Experiments**](https://arxiv.org/abs/2305.17187) *NeurIPS 2023.* With Jessica Dai, and Chris Harshaw.
+  
 - [**Projection-free Adaptive Regret with Membership Oracles**](https://arxiv.org/pdf/2211.12638.pdf) *ALT 2023.* With Zhou Lu, Nataly Brukhim, and Elad Hazan.
   
 - [**Lyapunov Density Models: Constraining Distribution Shift in Learning-Based Control.**](https://arxiv.org/abs/2206.10524) *ICML 2022.* With Katie Kang, Jason Choi, Michael Janner, Claire Tomlin, and Sergey Levine.
