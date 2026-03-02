@@ -1,5 +1,3 @@
-# paula-gradu.github.io
-
 [comment]: <img src="/assets/photo_1.jpg" width="60" align="right"/>
 
 ## Paula Gradu
