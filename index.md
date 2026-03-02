@@ -9,7 +9,7 @@ I'm a fifth year PhD candidate in EECS at UC Berkeley advised by [Ben Recht](htt
 
 My work integrates techniques from online optimization, modern statistics and control theory and is focused on developing adaptive methods for **evaluating interventions** and **individualizing interventions** with provable guarantees. For the former, examples include: [identifying disparities across subgroups in incident databases](https://arxiv.org/abs/2502.08166), [proposing a variance-optimal sequential experiment design](https://arxiv.org/abs/2305.17187), and [designing methodology for valid post-causal-discovery inference](https://arxiv.org/abs/2208.05949). For the latter, a key example is designing an [individualized approach to tapering medications](https://arxiv.org/pdf/2309.11629.pdf), and on-going work with UCSF on developing an optimization framework for dose reductions in chemotherapy.
 
-#### Publications
+### Publications
 - [**From Individual Experience to Collective Evidence: An Incident-Based Framework for Identifying Systemic Discrimination**](https://arxiv.org/abs/2502.08166) *ICML 2025.* With Jessica Dai, Deborah Raji, and Ben Recht.
 
 - [**Online Control For Adaptive Tapering Of Medications**](https://arxiv.org/pdf/2309.11629.pdf) *CDC 2023.* With Ben Recht.
