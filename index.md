@@ -3,7 +3,7 @@ pgradu@berkeley.edu
 
 I'm a fifth year PhD candidate in EECS at UC Berkeley advised by [Ben Recht](http://people.eecs.berkeley.edu/~brecht/index.html) and [Michael Jordan](http://people.eecs.berkeley.edu/~jordan/). Before, I was very fortunate to be advised by [Elad Hazan](https://www.cs.princeton.edu/~ehazan/) (at Princeton) who taught me the ways of research. 
 
-My work integrates techniques from online optimization, modern statistics and control theory and is focused on developing adaptive methods for **evaluating interventions** and **individualizing interventions** with provable guarantees. For the former, examples include: [identifying disparities across subgroups in incident databases](https://arxiv.org/abs/2502.08166), [proposing a variance-optimal sequential experiment design](https://arxiv.org/abs/2305.17187), and [designing methodology for valid post-causal-discovery inference](https://arxiv.org/abs/2208.05949). For the latter, a key example is designing an [individualized approach to tapering medications](https://arxiv.org/abs/2309.11629), and on-going work with UCSF on developing an optimization framework for dose reductions in chemotherapy.
+My work integrates techniques from online optimization, modern statistics and control theory and is focused on developing adaptive methods for **evaluating interventions** and **individualizing interventions** with provable guarantees. For the former, examples include: **(i)** [identifying disparities across subgroups in incident databases](https://arxiv.org/abs/2502.08166), **(ii)** [proposing a variance-optimal sequential experiment design](https://arxiv.org/abs/2305.17187), and **(iii)** [designing methodology for valid post-causal-discovery inference](https://arxiv.org/abs/2208.05949). For the latter, a key example is designing an [individualized approach to tapering medications](https://arxiv.org/abs/2309.11629), and on-going work with UCSF on developing an optimization framework for dose reductions in chemotherapy.
 
 ### Publications
 - [**From Individual Experience to Collective Evidence: An Incident-Based Framework for Identifying Systemic Discrimination**](https://arxiv.org/abs/2502.08166) *ICML 2025.* With Jessica Dai, Deborah Raji, and Ben Recht.
@@ -26,7 +26,7 @@ My work integrates techniques from online optimization, modern statistics and co
 
 - [**SyntaxNet for Romanian: Results and Potential.**](http://consilr.info.uaic.ro/2016/Consilr_2016.pdf) *Proceedings of the 12th International Conference Linguistic Resources and Tools for Processing the Romanian Language, 2016.* With Radu Ion.
 
-#### Workshop Papers
+### Workshop Papers
 - [**Machine Learning for Mechanical Ventilation Control.**](https://arxiv.org/abs/2102.06779) *(extended abstract) ML4H 2021.* With Daniel Suo, Naman Agarwal, Wenhan Xia, Xinyi Chen, Udaya Ghai, Alexander Yu, Karan Singh, Cyril Zhang, Edgar Minasyan, Julienne LaChance, Tom Zajdel, Manuel Schottdorf, Daniel Cohen, and Elad Hazan.
 
 - [**DELUCA - A Differentiable Control Library: Environments, Methods, and Benchmarking.**](https://arxiv.org/abs/2102.09968) *Differentiable Computer Vision, Graphics, and Physics in Machine Learning Workshop, NeurIPS 2020.* With John Hallman, Daniel Suo, Alex Yu, Naman Agarwal, Udaya Ghai, Karan Singh, Cyril Zhang, Anirudha Majumdar, and Elad Hazan.
