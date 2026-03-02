@@ -30,7 +30,7 @@ My work integrates techniques from online optimization, modern statistics and co
 
 - [**SyntaxNet for Romanian: Results and Potential.**](http://consilr.info.uaic.ro/2016/Consilr_2016.pdf) *Proceedings of the 12th International Conference Linguistic Resources and Tools for Processing the Romanian Language, 2016.* With Radu Ion.
 
-#### Workshops
+#### Workshop Papers
 - [**Machine Learning for Mechanical Ventilation Control.**](https://arxiv.org/abs/2102.06779) *(extended abstract) ML4H 2021.* With Daniel Suo, Naman Agarwal, Wenhan Xia, Xinyi Chen, Udaya Ghai, Alexander Yu, Karan Singh, Cyril Zhang, Edgar Minasyan, Julienne LaChance, Tom Zajdel, Manuel Schottdorf, Daniel Cohen, and Elad Hazan.
 
 - [**DELUCA - A Differentiable Control Library: Environments, Methods, and Benchmarking.**](https://arxiv.org/abs/2102.09968) *Differentiable Computer Vision, Graphics, and Physics in Machine Learning Workshop, NeurIPS 2020.* With John Hallman, Daniel Suo, Alex Yu, Naman Agarwal, Udaya Ghai, Karan Singh, Cyril Zhang, Anirudha Majumdar, and Elad Hazan.
