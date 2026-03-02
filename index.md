@@ -1,6 +1,4 @@
-[comment]: <img src="/assets/photo_1.jpg" width="60" align="right"/>
-
-## Paula Gradu
+# Paula Gradu
 pgradu@berkeley.edu
 
 I'm a fifth year PhD candidate in EECS at UC Berkeley advised by [Ben Recht](http://people.eecs.berkeley.edu/~brecht/index.html) and [Michael Jordan](http://people.eecs.berkeley.edu/~jordan/). Before, I was very fortunate to be advised by [Elad Hazan](https://www.cs.princeton.edu/~ehazan/) (at Princeton) who taught me the ways of research. 
