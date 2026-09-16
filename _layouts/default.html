@@ -10,29 +10,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  /* ------------------------------------------------------------------
-     Palette pulled from the Lust for Life visual world:
-     sun-bleached 16mm cream, the red of the cover type and the red dress,
-     the turquoise TV studio from the title-track video, the field of
-     orange flowers she lands in, gold stars and the galaxy sequences.
-     ------------------------------------------------------------------ */
   :root{
-    --cream:#f0e2c8;
-    --cream-2:#e6d4b4;
-    --rule:#cdb68f;
+    /* the two supplied codes */
+    --bg:#eae6de;
+    --red:#a30602;
+
+    --surface:#ded9cf;
+    --rule:#c9c3b8;
     --ink:#241a16;
     --ink-soft:#6b5344;
-    --red:#c9182b;
-    --red-dk:#8e0f1d;
-    --turq:#2a9d94;
-    --orange:#e0752a;
-    --gold:#d9a441;
-    --night:#141024;
-    /* text-safe variants of the two light accents: the bright turquoise and
-       gold sit at 2.6:1 and 1.8:1 on cream, so they stay decoration-only
-       (rules, stars) and these darker ones carry anything you have to read */
-    --turq-ink:#186058;
+    --blue:#2596be;      /* decoration only — 2.7:1 on the background */
+    --blue-ink:#155a73;  /* the readable sibling, 6.2:1 */
+    --gold:#d9a441;      /* decoration only */
     --gold-ink:#946516;
+    --night:#141024;
 
     --mono:"Courier Prime","Courier New",Courier,monospace;
     --display:"Cinzel",Georgia,serif;
@@ -43,17 +34,13 @@
 
   *{box-sizing:border-box;}
 
-  html{
-    background:var(--cream);
-    cursor:var(--cur),auto;
-  }
+  html{background:var(--bg);cursor:var(--cur),auto;}
 
   body{
     margin:0;
-    padding:0 1.5rem 0;
     background:
-      radial-gradient(900px 480px at 18% -6%, #fff4e0 0%, rgba(255,244,224,0) 68%),
-      var(--cream);
+      radial-gradient(900px 480px at 18% -6%, #f6f3ec 0%, rgba(246,243,236,0) 68%),
+      var(--bg);
     color:var(--ink);
     font-family:var(--mono);
     font-size:16px;
@@ -62,85 +49,112 @@
     -webkit-font-smoothing:antialiased;
   }
 
-  /* 16mm grain over the whole page */
+  /* 16mm grain */
   body::after{
     content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:3;
-    opacity:.16;
-    mix-blend-mode:multiply;
+    position:fixed;inset:0;
+    pointer-events:none;z-index:9;
+    opacity:.14;mix-blend-mode:multiply;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* ---------------- layout: portrait left, text right ---------------- */
+  /* -------- shell: rail pinned left, content flows in the padded area ---- */
   .sheet{
-    max-width:880px;
-    margin:0 auto;
-    padding-bottom:5rem;
-    display:grid;
-    grid-template-columns:230px 1fr;
-    column-gap:2.6rem;
-    align-items:start;
-  }
-  /* everything spans both columns by default; the header pieces below
-     are then pinned into the right-hand column. index.md has exactly
-     three <p> before the first heading: contact, then two bio paragraphs. */
-  .sheet > *{grid-column:1 / -1;}
-  .sheet > h1{grid-column:2;grid-row:1;}
-  .sheet > p:nth-of-type(1){grid-column:2;grid-row:2;}
-  .sheet > p:nth-of-type(2){grid-column:2;grid-row:3;}
-  .sheet > p:nth-of-type(3){grid-column:2;grid-row:4;}
-
-  /* ---------------- portrait: square, sparkles at two corners -------- */
-  .portrait-frame{
-    grid-column:1;
-    grid-row:1 / span 4;
-    align-self:start;
     position:relative;
-    width:230px;
-    margin:3.4rem 0 0;
+    max-width:920px;
+    margin:0 auto;
+    padding:0 1.5rem 5rem 290px;
   }
+  .rail{
+    position:absolute;
+    left:0;
+    top:3.4rem;
+    width:230px;
+  }
+
+  /* -------- portrait, square, with stationary white sparkles ----------- */
+  .portrait-frame{position:relative;width:230px;}
   .portrait{
     display:block;
-    width:230px;
-    height:230px;
+    width:230px;height:230px;
     object-fit:cover;
     border:2px solid var(--ink);
     filter:saturate(.92) contrast(1.04);
   }
-  /* anime four-point sparkles, top-right and bottom-left */
+  /* the img carries a filter, which makes it paint like a positioned box —
+     so the sparkles need an explicit z-index to sit on top of it */
   .portrait-frame::before,
   .portrait-frame::after{
     content:"";
     position:absolute;
+    z-index:2;
     background-repeat:no-repeat;
     background-size:contain;
     pointer-events:none;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z' fill='%23fff4d6' stroke='%23d9a441' stroke-width='.6'/%3E%3C/svg%3E");
-    filter:drop-shadow(0 0 4px rgba(217,164,65,.85));
-    animation:twinkle 2.6s ease-in-out infinite;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z' fill='%23ffffff'/%3E%3C/svg%3E");
+    filter:drop-shadow(0 1px 3px rgba(0,0,0,.45));
   }
-  .portrait-frame::before{
-    width:40px;height:40px;
-    top:-17px;right:-15px;
-  }
-  .portrait-frame::after{
-    width:24px;height:24px;
-    bottom:-11px;left:-10px;
-    animation-delay:1.3s;
-  }
-  @keyframes twinkle{
-    0%,100%{opacity:1;transform:scale(1) rotate(0deg);}
-    50%{opacity:.55;transform:scale(.8) rotate(-12deg);}
-  }
-  @media (prefers-reduced-motion:reduce){
-    .portrait-frame::before,
-    .portrait-frame::after{animation:none;}
-  }
+  .portrait-frame::before{width:44px;height:44px;top:-12px;right:-12px;}
+  .portrait-frame::after{width:26px;height:26px;bottom:-8px;left:-8px;}
 
-  /* ---------------- name ---------------- */
+  /* -------- the little menu -------------------------------------------- */
+  .sidenav{margin-top:2.2rem;}
+  .sidenav ul{list-style:none;margin:0;padding:0;}
+  .sidenav li{margin:0;padding:0;border:0;}
+  .sidenav li::before{content:none;}
+  .sidenav li:hover{background:none;border-color:transparent;}
+  .navlink{
+    display:block;
+    padding:.34rem 0 .34rem 1.4rem;
+    position:relative;
+    color:var(--ink);
+    font-size:.92rem;
+    letter-spacing:.06em;
+    text-decoration:none;
+    cursor:var(--cur-hover),pointer;
+    transition:color .15s ease;
+  }
+  .navlink::before{
+    content:"✦";
+    position:absolute;
+    left:0;
+    color:var(--rule);
+    font-size:.7rem;
+    transition:color .15s ease;
+  }
+  .navlink:hover{color:var(--red);}
+  .navlink:hover::before{color:var(--red);}
+  .navlink.is-on{color:var(--red);font-weight:700;}
+  .navlink.is-on::before{color:var(--red);}
+
+  /* -------- language switcher, top right ------------------------------- */
+  .langbar{
+    position:absolute;
+    top:3.9rem;
+    right:1.5rem;
+    display:flex;
+    align-items:center;
+    gap:.1rem;
+    font-size:.82rem;
+    letter-spacing:.08em;
+  }
+  .langlink{
+    padding:.15rem .45rem;
+    color:var(--ink-soft);
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:var(--cur-hover),pointer;
+    transition:color .15s ease,border-color .15s ease;
+  }
+  .langlink:hover{color:var(--red);}
+  .langlink.is-on{
+    color:var(--red);
+    font-weight:700;
+    border-color:var(--rule);
+  }
+  .langbar .sep{color:var(--rule);}
+
+  /* -------- name and contact ------------------------------------------- */
   h1{
     margin:3.2rem 0 .5rem;
     font-family:var(--mono);
@@ -150,37 +164,22 @@
     line-height:1.15;
     color:var(--ink);
   }
-
-  /* contact line: email · CV · Scholar */
-  .sheet > p:nth-of-type(1){
-    margin:0 0 1.9rem;
+  h1 + p{
+    margin:0 0 2.4rem;
     color:var(--gold-ink);
     font-size:.9rem;
     letter-spacing:.05em;
   }
-  .sheet > p:nth-of-type(1) a{
-    color:var(--red-dk);
-    margin:0 .35rem;
-    text-decoration-color:transparent;
-  }
-  .sheet > p:nth-of-type(1) a:hover{
-    color:var(--turq-ink);
-    text-decoration-color:var(--turq-ink);
-  }
-
-  /* bio */
-  .sheet > p:nth-of-type(2),
-  .sheet > p:nth-of-type(3){
-    font-size:1rem;
-    line-height:1.85;
-  }
+  h1 + p a{color:var(--red);margin:0 .35rem;text-decoration-color:transparent;}
+  h1 + p a:hover{color:var(--blue-ink);text-decoration-color:var(--blue-ink);}
 
   p{margin:0 0 1.2rem;}
+  .pane > p{font-size:1rem;line-height:1.85;}
   strong{font-weight:700;}
   em{color:var(--ink-soft);font-style:italic;}
 
   a{
-    color:var(--red-dk);
+    color:var(--red);
     text-decoration:underline;
     text-decoration-color:var(--rule);
     text-decoration-thickness:1px;
@@ -188,12 +187,16 @@
     transition:color .15s ease,text-decoration-color .15s ease;
     cursor:var(--cur-hover),pointer;
   }
-  a:hover{color:var(--turq-ink);text-decoration-color:var(--turq-ink);}
-  a:focus-visible{outline:2px solid var(--turq-ink);outline-offset:3px;}
+  a:hover{color:var(--blue-ink);text-decoration-color:var(--blue-ink);}
+  a:focus-visible{outline:2px solid var(--blue-ink);outline-offset:3px;}
 
-  /* ---------------- section headings ---------------- */
+  /* -------- panes ------------------------------------------------------ */
+  .pane[data-lang="fr"]{display:none;}      /* no-JS: English only */
+  body.has-js .pane{display:none;}
+  body.has-js .pane.is-on{display:block;}
+
   h3{
-    margin:3.4rem 0 1.3rem;
+    margin:0 0 1.3rem;
     font-family:var(--display);
     font-size:1.05rem;
     font-weight:600;
@@ -204,53 +207,40 @@
     align-items:center;
     gap:.85rem;
   }
-  h3::before{
-    content:"✦";
-    color:var(--red);
-    font-size:.9rem;
-  }
+  h3::before{content:"✦";color:var(--red);font-size:.9rem;}
   h3::after{
-    content:"";
-    flex:1;
-    height:2px;
-    background:linear-gradient(90deg,var(--red) 0 18%,var(--gold) 18% 34%,var(--turq) 34% 46%,var(--rule) 46%,rgba(205,182,143,0));
+    content:"";flex:1;height:2px;
+    background:linear-gradient(90deg,var(--red) 0 18%,var(--gold) 18% 34%,var(--blue) 34% 46%,var(--rule) 46%,rgba(201,195,184,0));
   }
+  h3 ~ h3{margin-top:3rem;}
 
-  /* ---------------- publications ---------------- */
-  ul{list-style:none;margin:0;padding:0;}
-  li{
+  /* -------- publications ----------------------------------------------- */
+  .pane ul{list-style:none;margin:0;padding:0;}
+  .pane li{
     position:relative;
     margin:0 0 .5rem;
     padding:.8rem 1rem .8rem 1.75rem;
     border:1px solid transparent;
     transition:background .16s ease,border-color .16s ease;
   }
-  li::before{
+  .pane li::before{
     content:"✦";
-    position:absolute;
-    left:.4rem;
-    top:.8rem;
-    color:var(--gold-ink);
-    font-size:.72rem;
-    line-height:1.9;
+    position:absolute;left:.4rem;top:.8rem;
+    color:var(--gold-ink);font-size:.72rem;line-height:1.9;
   }
-  li:hover{
-    background:var(--cream-2);
-    border-color:var(--rule);
-  }
-  li:hover::before{color:var(--red);}
-  /* kramdown emits loose lists (<p> inside each <li>) because the items in
-     index.md are blank-line separated — don't double the spacing */
-  li > p{margin:0;}
-  li > p + p{margin-top:.4rem;}
-  .sheet p:empty{display:none;}
-  li a{text-decoration-color:transparent;}
-  li a:hover{text-decoration-color:var(--turq-ink);}
+  .pane li:hover{background:var(--surface);border-color:var(--rule);}
+  .pane li:hover::before{color:var(--red);}
+  /* kramdown emits loose lists (<p> inside each <li>) for blank-line
+     separated items — don't double the spacing */
+  .pane li > p{margin:0;}
+  .pane li > p + p{margin-top:.4rem;}
+  .pane p:empty{display:none;}
+  .pane li a{text-decoration-color:transparent;}
+  .pane li a:hover{text-decoration-color:var(--blue-ink);}
 
-  /* ---------------- cosmic footer ---------------- */
+  /* -------- cosmic footer ---------------------------------------------- */
   .cosmos{
-    grid-column:1 / -1;
-    margin-top:4.5rem;
+    margin-top:0;
     padding:2.4rem 1rem 2rem;
     text-align:center;
     background:
@@ -267,22 +257,21 @@
     font-size:.78rem;
     letter-spacing:.12em;
   }
-  .cosmos .moon{
-    display:block;
-    margin-bottom:.7rem;
-    color:var(--gold);
-    font-size:1rem;
-    letter-spacing:.7em;
-  }
+  .cosmos .moon{display:block;margin-bottom:.7rem;color:var(--gold);font-size:1rem;letter-spacing:.7em;}
 
-  /* ---------------- small screens ---------------- */
-  @media (max-width:720px){
-    .sheet{display:block;max-width:560px;}
-    .portrait-frame{width:170px;margin:2.6rem 0 1.6rem;}
+  /* -------- small screens ---------------------------------------------- */
+  @media (max-width:760px){
+    .sheet{padding:0 1.25rem 3rem;max-width:620px;}
+    .rail{position:static;width:auto;margin-top:2.4rem;}
+    .portrait-frame{width:170px;}
     .portrait{width:170px;height:170px;}
-    .portrait-frame::before{width:30px;height:30px;top:-13px;right:-11px;}
-    .portrait-frame::after{width:18px;height:18px;bottom:-8px;left:-8px;}
-    h1{margin:0 0 .5rem;font-size:1.9rem;}
+    .portrait-frame::before{width:34px;height:34px;top:-10px;right:-10px;}
+    .portrait-frame::after{width:20px;height:20px;bottom:-7px;left:-7px;}
+    .sidenav{margin-top:1.6rem;}
+    .sidenav ul{display:flex;gap:1.1rem;flex-wrap:wrap;}
+    .navlink{padding:.2rem 0 .2rem 1.1rem;font-size:.86rem;}
+    .langbar{position:static;margin-top:1.6rem;justify-content:flex-start;}
+    h1{margin:1.8rem 0 .5rem;font-size:1.85rem;}
     body{font-size:15px;}
     h3{letter-spacing:.12em;}
   }
@@ -290,14 +279,93 @@
 </head>
 <body>
   <main class="sheet">
-    <div class="portrait-frame">
-      <img class="portrait" src="{{ '/assets/portrait.jpg' | relative_url }}" alt="Paula Gradu" width="230" height="230">
+    <aside class="rail">
+      <div class="portrait-frame">
+        <img class="portrait" src="{{ '/assets/portrait.jpg' | relative_url }}" alt="Paula Gradu" width="230" height="230">
+      </div>
+      <nav class="sidenav" aria-label="Sections">
+        <ul>
+          <li><a class="navlink" href="#home" data-target="home">Home</a></li>
+          <li><a class="navlink" href="#publications" data-target="publications">Publications</a></li>
+          <li><a class="navlink" href="#links" data-target="links">Cool links</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div class="langbar" role="group" aria-label="Language">
+      <a class="langlink" href="#en" data-lang="en" aria-pressed="true">EN</a>
+      <span class="sep">/</span>
+      <a class="langlink" href="#fr" data-lang="fr" aria-pressed="false">FR</a>
     </div>
+
     {{ content }}
-    <div class="cosmos">
-      <span class="moon">☽ ✦ ☾</span>
-      Berkeley, California
-    </div>
   </main>
+
+  <footer class="cosmos">
+    <span class="moon">☽ ✦ ☾</span>
+    Berkeley, California
+  </footer>
+
+<script>
+(function(){
+  var root=document.documentElement, body=document.body;
+  body.classList.add('has-js');
+
+  var LABELS={
+    en:{home:'Home',publications:'Publications',links:'Cool links'},
+    fr:{home:'Accueil',publications:'Publications',links:'Liens sympas'}
+  };
+
+  function store(k,v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v); }catch(e){ return null; } }
+
+  var lang=store('pg.lang')||'en';
+  var pane=store('pg.pane')||'home';
+  if(!LABELS[lang]) lang='en';
+
+  var navLinks=[].slice.call(document.querySelectorAll('.navlink'));
+  var langLinks=[].slice.call(document.querySelectorAll('.langlink'));
+  var panes=[].slice.call(document.querySelectorAll('.pane'));
+  var i18n=[].slice.call(document.querySelectorAll('[data-fr]'));
+  if(!navLinks.some(function(b){return b.getAttribute('data-target')===pane;})) pane='home';
+
+  i18n.forEach(function(el){ el.setAttribute('data-en', el.textContent); });
+
+  function render(){
+    root.setAttribute('lang', lang);
+    navLinks.forEach(function(b){
+      var t=b.getAttribute('data-target');
+      b.textContent=LABELS[lang][t];
+      b.classList.toggle('is-on', t===pane);
+      if(t===pane) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current');
+    });
+    langLinks.forEach(function(b){
+      var on=b.getAttribute('data-lang')===lang;
+      b.classList.toggle('is-on', on);
+      b.setAttribute('aria-pressed', on?'true':'false');
+    });
+    i18n.forEach(function(el){
+      el.textContent = (lang==='fr') ? el.getAttribute('data-fr') : el.getAttribute('data-en');
+    });
+    panes.forEach(function(p){
+      var okPane=p.getAttribute('data-pane')===pane;
+      var l=p.getAttribute('data-lang');
+      p.classList.toggle('is-on', okPane && (l===lang || l==='both'));
+    });
+  }
+
+  navLinks.forEach(function(b){
+    b.addEventListener('click', function(e){
+      e.preventDefault(); pane=b.getAttribute('data-target'); store('pg.pane',pane); render();
+    });
+  });
+  langLinks.forEach(function(b){
+    b.addEventListener('click', function(e){
+      e.preventDefault(); lang=b.getAttribute('data-lang'); store('pg.lang',lang); render();
+    });
+  });
+
+  render();
+})();
+</script>
 </body>
 </html>
