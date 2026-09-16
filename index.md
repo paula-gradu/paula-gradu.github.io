@@ -71,7 +71,7 @@ Pour le second, un exemple central est [une approche individualisée de la rédu
 
 <span class="spark">&#10022;</span> In this page I am trying to create a space that reminds me of a vision of the internet and the digital world we were all once excited for, something that now seems like retro futurism. But maybe since now we have access to more coding help (for better or worse), we can finally work on the atmospheric and aesthetic qualities of this virtual realm we are so intertwined with. <span class="spark">&#10022;</span>
 
-The little snippet playing in the background is from [this video from nine years ago by Lana](https://www.youtube.com/watch?v=Gb1lte9uljI). Please watch it.
+The little snippet playing in the background is from [this video from nine years ago by Lana](https://www.youtube.com/watch?v=Gb1lte9uljI).
 {: .snippet}
 
 ### Initiatives I like
@@ -94,7 +94,7 @@ The little snippet playing in the background is from [this video from nine years
 
 <span class="spark">&#10022;</span> Sur cette page, j'essaie de créer un espace qui me rappelle une certaine vision d'internet et du monde numérique qui nous enthousiasmait autrefois, et qui ressemble aujourd'hui à du rétrofuturisme. Mais peut-être que, maintenant que nous avons accès à bien plus d'aide pour coder (pour le meilleur ou pour le pire), nous pourrons enfin soigner les qualités atmosphériques et esthétiques de ce monde virtuel auquel nous sommes si étroitement liés. <span class="spark">&#10022;</span>
 
-Le petit extrait qui joue en fond vient de [cette vidéo de Lana, publiée il y a neuf ans](https://www.youtube.com/watch?v=Gb1lte9uljI). Regardez-la.
+Le petit extrait qui joue en fond vient de [cette vidéo de Lana, publiée il y a neuf ans](https://www.youtube.com/watch?v=Gb1lte9uljI).
 {: .snippet}
 
 ### Initiatives que j'aime
