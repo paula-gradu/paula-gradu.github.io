@@ -319,10 +319,27 @@
   /* -------- Miscellaneous intro ---------------------------------------- */
   .pane[data-pane="links"] > p{
     color:var(--ink-soft);
-    margin-bottom:2.2rem;
+    margin-bottom:1rem;
   }
-  .pane[data-pane="links"] > p a{text-decoration-color:currentColor;}
   .hrt{color:var(--red);}
+
+  /* the note about the track: smaller, tilde-wrapped, softer and golden */
+  .snippet{
+    margin-bottom:2.5rem;
+    font-size:.82rem;
+    line-height:1.7;
+    opacity:.92;
+  }
+  .snippet::before{content:"~ ";color:var(--gold-ink);}
+  .snippet::after{content:" ~";color:var(--gold-ink);}
+  .snippet a{
+    color:var(--gold-ink);
+    text-decoration-color:rgba(232,192,106,.45);
+  }
+  .snippet a:hover{
+    color:#f0cd82;
+    text-decoration-color:#f0cd82;
+  }
 
   /* -------- Miscellaneous entries -------------------------------------
      numbered index in place of the star, a pink kicker tag, a sepia
@@ -366,14 +383,25 @@
   /* :visited only accepts a colour, and only a literal one reliably */
   .pane[data-pane="links"] li a:visited{color:#b79ae0;}
 
-  .pane[data-pane="links"] h3::after{
+  .pane[data-pane="links"] h3::before{
     content:"\263E \25D0 \25CF \25D1 \263D";
-    flex:none;
+    color:var(--gold-ink);
+    font-size:.72rem;
+    letter-spacing:.24em;
+  }
+  /* stars thinning into dots, then masked away to nothing */
+  .pane[data-pane="links"] h3::after{
+    content:"✦ ✧ ⋆ ✧ · ⋆ · ✧ · · ⋆ · · · · ·";
+    flex:1;
     height:auto;
     background:none;
     color:var(--gold-ink);
-    font-size:.78rem;
+    font-size:.72rem;
     letter-spacing:.3em;
+    white-space:nowrap;
+    overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.4) 55%,transparent 100%);
+    mask-image:linear-gradient(90deg,#000 0%,rgba(0,0,0,.4) 55%,transparent 100%);
   }
 
   /* -------- About pane only — Research/Miscellaneous keep their own look --
