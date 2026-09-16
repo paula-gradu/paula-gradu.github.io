@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>♥ {{ site.title }}</title>
 <meta name="description" content="{{ site.description }}">
-<link rel="preload" as="image" href="{{ '/assets/portrait-cosmos.jpg' | relative_url }}">
-<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon.png' | relative_url }}">
-<link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+<link rel="preload" as="image" href="{{ '/assets/portrait-cosmos.jpg' | relative_url }}?v={{ site.assets_v }}">
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}?v={{ site.assets_v }}" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon.png' | relative_url }}?v={{ site.assets_v }}">
+<link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}?v={{ site.assets_v }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
@@ -358,9 +358,9 @@
     <aside class="rail">
       <div class="portrait-frame">
         <img class="portrait" id="portrait"
-             src="{{ '/assets/portrait.jpg' | relative_url }}"
-             data-default="{{ '/assets/portrait.jpg' | relative_url }}"
-             data-cosmos="{{ '/assets/portrait-cosmos.jpg' | relative_url }}"
+             src="{{ '/assets/portrait.jpg' | relative_url }}?v={{ site.assets_v }}"
+             data-default="{{ '/assets/portrait.jpg' | relative_url }}?v={{ site.assets_v }}"
+             data-cosmos="{{ '/assets/portrait-cosmos.jpg' | relative_url }}?v={{ site.assets_v }}"
              alt="Paula Gradu" width="230" height="230">
       </div>
       <nav class="sidenav" aria-label="Sections">

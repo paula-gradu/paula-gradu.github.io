@@ -1,4 +1,7 @@
 title: Paula Gradu
+# bump when an image/icon changes so browsers cannot serve a stale copy
+assets_v: 2
+
 description: PhD candidate in EECS at UC Berkeley, working on adaptive methods for evaluating and individualizing interventions.
 
 exclude:
