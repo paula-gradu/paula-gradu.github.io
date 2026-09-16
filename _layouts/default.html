@@ -248,8 +248,15 @@
   }
   .pane li::before{
     content:"✦";
-    position:absolute;left:.4rem;top:.5rem;
-    color:var(--gold-ink);font-size:.72rem;line-height:1.9;
+    position:absolute;
+    left:.4rem;
+    top:.5rem;              /* = the li's padding-top */
+    /* give the marker a box exactly as tall as the row's first line
+       (1rem text x 1.75 line-height) and centre the glyph inside it */
+    height:1.75rem;
+    line-height:1.75rem;
+    color:var(--gold-ink);
+    font-size:.76rem;
   }
   .pane li:hover::before{color:var(--red);}
   .pane li:hover{background:var(--surface);border-color:var(--rule);}
@@ -261,6 +268,11 @@
   .pane li a{text-decoration-color:transparent;}
   .pane li a:hover{text-decoration-color:var(--blue-ink);}
 
+
+  /* -------- Research pane: swap the venue and author tones ------------
+     venue takes the strong ink, authors drop back to the soft sepia      */
+  .pane[data-pane="publications"] li{color:var(--ink-soft);}
+  .pane[data-pane="publications"] li em{color:var(--ink);}
 
   /* -------- About pane only — Research/Miscellaneous keep their own look --
      every link here gets the paper-title red and weight, keeps the soft
@@ -286,8 +298,9 @@
     margin:0;
     padding-top:.2rem;
     padding-bottom:.2rem;
+    padding-left:2.1rem;
   }
-  .pane[data-pane="home"] li::before{top:.2rem;}
+  .pane[data-pane="home"] li::before{top:.2rem;left:.75rem;}
 
   /* -------- cosmos mode: the whole ground goes night on Cool links ------
      the supplied red is 2.29:1 on this background, so the accents are
