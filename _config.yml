@@ -1,4 +1,5 @@
-theme: jekyll-theme-minimal
+title: Paula Gradu
+description: PhD candidate in EECS at UC Berkeley, working on adaptive methods for evaluating and individualizing interventions.
 
-title: []
-description: []
+exclude:
+  - README.md

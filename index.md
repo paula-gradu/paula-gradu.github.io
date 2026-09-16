@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Paula Gradu
 pgradu@berkeley.edu
 

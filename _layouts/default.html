@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site.title }}</title>
+<meta name="description" content="{{ site.description }}">
+<link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fbf7f0;
+    --paper-2:#f4ece0;
+    --rule:#e4d9c8;
+    --ink:#2a2724;
+    --ink-soft:#6e655a;
+    --bleu:#3f5e96;
+    --bleu-dk:#2e4670;
+    --rouge:#b23e4e;
+    --gold:#c6963a;
+    --mono:"Courier Prime", "Courier New", Courier, monospace;
+    --heart:url("{{ '/assets/heart.png' | relative_url }}") 16 16;
+    --heart-hover:url("{{ '/assets/heart-hover.png' | relative_url }}") 16 16;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{
+    background:var(--paper);
+    cursor:var(--heart),auto;
+  }
+
+  body{
+    margin:0;
+    padding:0 1.25rem 5rem;
+    background:
+      radial-gradient(1100px 520px at 50% -8%, #fffdf8 0%, rgba(255,253,248,0) 70%),
+      var(--paper);
+    color:var(--ink);
+    font-family:var(--mono);
+    font-size:16px;
+    line-height:1.75;
+    cursor:var(--heart),auto;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .sheet{
+    max-width:760px;
+    margin:0 auto;
+    animation:rise .6s ease-out both;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){
+    .sheet{animation:none;}
+  }
+
+  /* ---------- portrait ---------- */
+  .portrait{
+    display:block;
+    width:190px;
+    height:190px;
+    margin:4.5rem auto 2rem;
+    border-radius:50%;
+    object-fit:cover;
+    box-shadow:
+      0 0 0 7px var(--paper),
+      0 0 0 8px var(--gold),
+      0 18px 44px rgba(42,39,36,.18);
+  }
+
+  /* ---------- headings ---------- */
+  h1{
+    margin:0 0 .35rem;
+    text-align:center;
+    font-size:2.35rem;
+    font-weight:700;
+    letter-spacing:.06em;
+    line-height:1.2;
+  }
+  /* the contact line directly under the name */
+  h1 + p{
+    margin:0 0 2.75rem;
+    text-align:center;
+    color:var(--rouge);
+    font-size:.95rem;
+    letter-spacing:.04em;
+  }
+  h1 + p::before,
+  h1 + p::after{
+    content:"·";
+    color:var(--gold);
+    margin:0 .7rem;
+  }
+
+  h3{
+    margin:3.25rem 0 1.25rem;
+    font-size:1rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    color:var(--bleu-dk);
+    display:flex;
+    align-items:center;
+    gap:.9rem;
+  }
+  h3::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:linear-gradient(90deg,var(--gold),var(--rule) 45%,rgba(228,217,200,0));
+  }
+
+  /* ---------- text ---------- */
+  p{margin:0 0 1.25rem;}
+  .sheet > p:nth-of-type(2){
+    font-size:1.02rem;
+    line-height:1.85;
+  }
+  strong{font-weight:700;}
+  em{color:var(--ink-soft);font-style:italic;}
+
+  a{
+    color:var(--bleu);
+    text-decoration:underline;
+    text-decoration-color:var(--rule);
+    text-decoration-thickness:1px;
+    text-underline-offset:3px;
+    transition:color .15s ease, text-decoration-color .15s ease;
+    cursor:var(--heart-hover),pointer;
+  }
+  a:hover{
+    color:var(--rouge);
+    text-decoration-color:var(--rouge);
+  }
+  a:focus-visible{
+    outline:2px solid var(--bleu);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  /* ---------- publication lists ---------- */
+  ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  li{
+    position:relative;
+    margin:0 0 .55rem;
+    padding:.85rem 1rem .85rem 1.65rem;
+    border:1px solid transparent;
+    border-radius:3px;
+    transition:background .18s ease, border-color .18s ease;
+  }
+  li::before{
+    content:"❧";
+    position:absolute;
+    left:.35rem;
+    top:.85rem;
+    color:var(--gold);
+    font-size:.85rem;
+    line-height:1.75;
+  }
+  li:hover{
+    background:var(--paper-2);
+    border-color:var(--rule);
+  }
+  /* kramdown emits loose lists (<p> inside each <li>) when items are
+     blank-line separated, as they are in index.md — don't double the spacing */
+  li > p{margin:0;}
+  li > p + p{margin-top:.4rem;}
+  .sheet p:empty{display:none;}
+
+  li a{
+    text-decoration-color:transparent;
+  }
+  li a:hover{
+    text-decoration-color:var(--rouge);
+  }
+
+  /* ---------- footer ---------- */
+  .fleuron{
+    margin:4rem 0 1.25rem;
+    text-align:center;
+    color:var(--gold);
+    letter-spacing:.6em;
+    font-size:.9rem;
+  }
+  footer{
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:.8rem;
+    letter-spacing:.05em;
+  }
+
+  /* ---------- small screens ---------- */
+  @media (max-width:600px){
+    body{font-size:15px;}
+    .portrait{width:150px;height:150px;margin:3rem auto 1.75rem;}
+    h1{font-size:1.75rem;}
+    h3{letter-spacing:.14em;}
+    li{padding-left:1.45rem;}
+  }
+</style>
+</head>
+<body>
+  <main class="sheet">
+    <img class="portrait" src="{{ '/assets/portrait.jpg' | relative_url }}" alt="Paula Gradu" width="190" height="190">
+    {{ content }}
+    <div class="fleuron">❦</div>
+    <footer>Berkeley, California</footer>
+  </main>
+</body>
+</html>
