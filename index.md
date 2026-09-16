@@ -88,8 +88,6 @@ The little snippet playing in the background is from [this video from nine years
 - [Culture and Cosmos Journal](https://www.cultureandcosmos.org) <span class="kicker">Journal</span>
   <span class="desc">The only peer-reviewed journal to focus on the history of astrology and cultural aspects of the history of astronomy.</span>
 
-### Interviews I like
-
 </section>
 
 <section class="pane" data-pane="links" data-lang="fr" markdown="1">
@@ -112,7 +110,5 @@ Le petit extrait qui joue en fond vient de [cette vidéo de Lana, publiée il y 
 
 - [Culture and Cosmos Journal](https://www.cultureandcosmos.org) <span class="kicker">Revue</span>
   <span class="desc">La seule revue à comité de lecture consacrée à l'histoire de l'astrologie et aux aspects culturels de l'histoire de l'astronomie.</span>
-
-### Entretiens que j'aime
 
 </section>

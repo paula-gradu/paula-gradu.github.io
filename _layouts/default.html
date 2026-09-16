@@ -462,21 +462,34 @@
   html.cosmos-mode .backdrop::after{
     content:"";
     position:absolute;
-    top:4%;
-    left:-14%;
-    width:170px;
-    height:2px;
+    top:9%;
+    left:13%;
+    width:116px;
+    height:1.5px;
     border-radius:2px;
-    background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.85));
+    /* soft head, tail dissolving rather than cut off */
+    background:linear-gradient(90deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,.16) 45%,
+      rgba(255,255,255,.5) 88%,
+      rgba(255,255,255,.62) 100%);
+    filter:blur(.35px);
     opacity:0;
-    animation:shoot 26s linear infinite;
+    animation:shoot 62s linear infinite;
   }
-  /* ~1.8s of travel, then ~24s of nothing — restraint is the point */
+  /* The travel is 40x28 vmin and the streak is tilted 35deg — atan(28/40) —
+     so it points along its own path on any viewport instead of skidding
+     sideways. It brightens, dims, and is fully transparent by 2.4%, while
+     the motion runs to 3%: it burns out mid-sky rather than exiting frame.
+     ~1.9s of flight, then about a minute of nothing. */
   @keyframes shoot{
-    0%   {opacity:0; transform:translate3d(0,0,0) rotate(24deg);}
-    1%   {opacity:.9;}
-    7%   {opacity:0; transform:translate3d(128vw,54vh,0) rotate(24deg);}
-    100% {opacity:0; transform:translate3d(128vw,54vh,0) rotate(24deg);}
+    0%    {opacity:0;   transform:translate3d(0,0,0) rotate(35deg);}
+    0.35% {opacity:0;}
+    0.9%  {opacity:.45;}
+    1.6%  {opacity:.3;}
+    2.4%  {opacity:0;}
+    3%    {opacity:0;   transform:translate3d(40vmin,28vmin,0) rotate(35deg);}
+    100%  {opacity:0;   transform:translate3d(40vmin,28vmin,0) rotate(35deg);}
   }
 
   /* -------- 9: the sign-off breathes while the track plays ------------- */
