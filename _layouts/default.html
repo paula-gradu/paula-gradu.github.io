@@ -148,11 +148,13 @@
 
   /* -------- language switcher, top right ------------------------------- */
   .langbar{
-    position:absolute;
-    /* top right corner, clear of the name entirely */
-    top:1.6rem;
+    /* fixed to the window, so it reads as a global control rather than
+       something belonging to the content column */
+    position:fixed;
+    z-index:5;
+    top:1.2rem;
     height:1.6rem;
-    right:1.5rem;
+    right:1.4rem;
     display:flex;
     align-items:center;
     gap:.1rem;
@@ -277,8 +279,15 @@
     background:none;
     border-color:transparent;
   }
-  /* let the list sit up close to the sentence that introduces it */
-  .pane[data-pane="home"] ul{margin-top:-.7rem;}
+  /* let the list sit up close to the sentence that introduces it, sit tight
+     within itself, and keep a little more air before the next paragraph */
+  .pane[data-pane="home"] ul{margin-top:-1rem;margin-bottom:.7rem;}
+  .pane[data-pane="home"] li{
+    margin:0;
+    padding-top:.2rem;
+    padding-bottom:.2rem;
+  }
+  .pane[data-pane="home"] li::before{top:.2rem;}
 
   /* -------- cosmos mode: the whole ground goes night on Cool links ------
      the supplied red is 2.29:1 on this background, so the accents are
