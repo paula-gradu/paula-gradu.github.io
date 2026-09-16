@@ -164,9 +164,8 @@
   .navlink.is-on::before{color:var(--red);}
 
   /* -------- language switcher, top right ------------------------------- */
-  /* the corner stack: language switcher, and beneath it the track control.
-     Fixed to the window so both read as global rather than belonging to the
-     content column. */
+  /* the language switcher, fixed to the window so it reads as a global
+     control rather than something belonging to the content column */
   .topright{
     position:fixed;
     z-index:5;
@@ -205,10 +204,13 @@
      preload="none", so the file is only fetched if someone actually plays
      it, and there is always a visible control to stop it                 */
   .player{
+    position:fixed;
+    z-index:5;
+    bottom:1.2rem;
+    right:1.4rem;
     font-size:.78rem;
     letter-spacing:.04em;
     color:var(--ink-soft);
-    text-align:right;
   }
   .playtoggle{
     display:inline-flex;
@@ -225,13 +227,6 @@
   }
   .playtoggle:hover{color:var(--blue-ink);border-color:var(--blue-ink);}
   .playtoggle:focus-visible{outline:2px solid var(--blue-ink);outline-offset:2px;}
-  .player .track{
-    display:block;
-    margin-top:.55rem;
-    font-style:italic;
-    opacity:.85;
-  }
-
   /* -------- name and contact ------------------------------------------- */
   h1{
     margin:var(--top) 0 .5rem;
@@ -380,7 +375,7 @@
     z-index:1;
     flex-shrink:0;
     margin-top:3rem;
-    padding:0 1.5rem 2.6rem;
+    padding:0 1.5rem 3.4rem;   /* clears the fixed track button */
     text-align:center;
     color:var(--ink-soft);
     font-size:.75rem;
@@ -404,8 +399,7 @@
     .sidenav{margin-top:1.6rem;}
     .sidenav ul{display:flex;gap:1.1rem;flex-wrap:wrap;}
     .navlink{padding:.2rem 0 .2rem 1.1rem;font-size:.86rem;}
-    .topright{position:static;align-items:flex-start;margin-top:1.6rem;gap:.6rem;}
-    .player{text-align:left;}
+    .topright{position:static;align-items:flex-start;margin-top:1.6rem;}
     h1{margin:1.8rem 0 .5rem;font-size:1.85rem;}
     body{font-size:15px;}
     h3{letter-spacing:.12em;}
@@ -441,17 +435,17 @@
         <a class="langlink" href="#fr" data-lang="fr" aria-pressed="false">FR</a>
       </div>
 
-      <div class="player" hidden>
-        <button class="playtoggle" type="button" aria-pressed="false">
-          <span class="glyph" aria-hidden="true">▶</span><span class="ptext">Play</span>
-        </button>
-        <span class="track">Roses Bloom for You (Lana Del Rey)</span>
-      </div>
     </div>
 
     {{ content }}
 
   </main>
+
+  <div class="player" hidden>
+    <button class="playtoggle" type="button" aria-pressed="false">
+      <span class="glyph" aria-hidden="true">▶</span><span class="ptext">Play</span>
+    </button>
+  </div>
 
   <audio id="tune" preload="none"
          src="{{ '/assets/roses-bloom-for-you.mp3' | relative_url }}?v={{ site.assets_v }}"></audio>
