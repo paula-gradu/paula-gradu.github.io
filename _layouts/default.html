@@ -87,6 +87,7 @@
   .backdrop{
     position:fixed;
     inset:0;
+    overflow:hidden;
     z-index:0;
     background-color:var(--bg);
     transition:background-color .35s ease;
@@ -463,14 +464,19 @@
   html.cosmos-mode{--navy-rgb:111,143,224;--hair-rgb:42,36,64;}
 
 
-  /* Three meteors on their own paths, staggered so one crosses roughly every
-     five seconds. Each sets its own --dx/--dy/--ang, so a single keyframes
-     block serves all of them; --ang is atan(dy/dx) in each case, which keeps
-     the streak pointing along its own path on any viewport. */
+  /* A single meteor — never two in the sky at once — but its 30s cycle
+     contains three flights, 10s apart, each starting somewhere different at
+     its own angle. It teleports between paths while opacity is 0, so one
+     element gives one star every ten seconds without looping visibly.
+     Each --ang is atan(dy/dx) of that flight, so the streak always points
+     along its own path. */
   .meteor{display:none;}
   html.cosmos-mode .meteor{
     display:block;
     position:absolute;
+    top:0;
+    left:0;
+    width:116px;
     height:1.5px;
     border-radius:2px;
     background:linear-gradient(90deg,
@@ -480,22 +486,34 @@
       rgba(255,255,255,.62) 100%);
     filter:blur(.35px);
     opacity:0;
-    animation:shoot 16s linear infinite;
+    animation:shoot 30s linear infinite;
   }
-  .m1{top:8%;  left:9%;  width:116px; --dx:40vmin; --dy:28vmin; --ang:35deg; animation-delay:0s;}
-  .m2{top:24%; left:47%; width:96px;  --dx:32vmin; --dy:24vmin; --ang:37deg; animation-delay:5.3s;}
-  .m3{top:5%;  left:63%; width:132px; --dx:46vmin; --dy:30vmin; --ang:33deg; animation-delay:10.6s;}
 
-  /* ~1.8s of flight inside a 16s cycle; fully faded by 9% while the motion
-     runs to 11.25%, so each one burns out mid-sky rather than exiting frame */
   @keyframes shoot{
-    0%     {opacity:0;   transform:translate3d(0,0,0) rotate(var(--ang));}
-    1.2%   {opacity:0;}
-    3.5%   {opacity:.45;}
-    6.5%   {opacity:.3;}
-    9%     {opacity:0;}
-    11.25% {opacity:0;   transform:translate3d(var(--dx),var(--dy),0) rotate(var(--ang));}
-    100%   {opacity:0;   transform:translate3d(var(--dx),var(--dy),0) rotate(var(--ang));}
+    /* flight one */
+    0%      {opacity:0;   transform:translate3d(9vw,8vh,0) rotate(35deg);}
+    0.6%    {opacity:0;}
+    1.8%    {opacity:.45;}
+    3.4%    {opacity:.3;}
+    4.8%    {opacity:0;}
+    6%      {opacity:0;   transform:translate3d(calc(9vw + 40vmin),calc(8vh + 28vmin),0) rotate(35deg);}
+    33.32%  {opacity:0;   transform:translate3d(calc(9vw + 40vmin),calc(8vh + 28vmin),0) rotate(35deg);}
+    /* flight two, repositioned while invisible */
+    33.33%  {opacity:0;   transform:translate3d(46vw,26vh,0) rotate(37deg);}
+    33.93%  {opacity:0;}
+    35.13%  {opacity:.45;}
+    36.73%  {opacity:.3;}
+    38.13%  {opacity:0;}
+    39.33%  {opacity:0;   transform:translate3d(calc(46vw + 32vmin),calc(26vh + 24vmin),0) rotate(37deg);}
+    66.66%  {opacity:0;   transform:translate3d(calc(46vw + 32vmin),calc(26vh + 24vmin),0) rotate(37deg);}
+    /* flight three */
+    66.67%  {opacity:0;   transform:translate3d(61vw,6vh,0) rotate(33deg);}
+    67.27%  {opacity:0;}
+    68.47%  {opacity:.45;}
+    70.07%  {opacity:.3;}
+    71.47%  {opacity:0;}
+    72.67%  {opacity:0;   transform:translate3d(calc(61vw + 46vmin),calc(6vh + 30vmin),0) rotate(33deg);}
+    100%    {opacity:0;   transform:translate3d(calc(61vw + 46vmin),calc(6vh + 30vmin),0) rotate(33deg);}
   }
 
   /* -------- 9: the sign-off breathes while the track plays ------------- */
@@ -550,7 +568,7 @@
 </head>
 <body>
   <div class="backdrop" aria-hidden="true">
-    <i class="meteor m1"></i><i class="meteor m2"></i><i class="meteor m3"></i>
+    <i class="meteor"></i>
   </div>
 
   <main class="sheet">
