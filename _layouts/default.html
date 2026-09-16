@@ -34,7 +34,8 @@
 
     /* one size and one optical lift for every star on the page */
     --marker-size:.76rem;
-    --marker-rise:2px;
+    --marker-rise:1px;        /* optical lift off the line's exact centre */
+    --marker-shift:.12rem;    /* nudge every star toward its text */
 
     --top:5.6rem;   /* how far down the page starts */
 
@@ -130,6 +131,7 @@
     content:"✦";
     position:absolute;
     top:calc(var(--row-pad) - var(--marker-rise));
+    left:calc(var(--row-marker-left) + var(--marker-shift));
     height:var(--row-line);
     line-height:var(--row-line);
     font-size:var(--marker-size);
@@ -144,6 +146,7 @@
   .navlink{
     --row-pad:.34rem;
     --row-line:1.61rem;       /* .92rem text x 1.75 line-height */
+    --row-marker-left:0rem;
     display:block;
     padding:var(--row-pad) 0 var(--row-pad) 1.4rem;
     position:relative;
@@ -154,7 +157,7 @@
     cursor:var(--cur-hover),pointer;
     transition:color .15s ease;
   }
-  .navlink::before{left:0;color:var(--rule);transition:color .15s ease;}
+  .navlink::before{color:var(--rule);transition:color .15s ease;}
   .navlink:hover{color:var(--red);}
   .navlink:hover::before{color:var(--red);}
   .navlink.is-on{color:var(--red);font-weight:700;}
@@ -287,13 +290,14 @@
   .pane li{
     --row-pad:.5rem;
     --row-line:1.75rem;       /* 1rem text x 1.75 line-height */
+    --row-marker-left:.4rem;
     position:relative;
     margin:0 0 .15rem;
     padding:var(--row-pad) 1rem var(--row-pad) 1.75rem;
     border:1px solid transparent;
     transition:background .16s ease,border-color .16s ease;
   }
-  .pane li::before{left:.4rem;color:var(--gold-ink);}
+  .pane li::before{color:var(--gold-ink);}
   .pane li:hover::before{color:var(--red);}
   .pane li:hover{background:var(--surface);border-color:var(--rule);}
   /* kramdown emits loose lists (<p> inside each <li>) for blank-line
@@ -332,10 +336,11 @@
   .pane[data-pane="home"] ul{margin-top:-1rem;margin-bottom:.7rem;}
   .pane[data-pane="home"] li{
     --row-pad:.2rem;          /* the marker follows this automatically */
+    --row-marker-left:.75rem;
     margin:0;
     padding-left:2.1rem;
   }
-  .pane[data-pane="home"] li::before{left:.75rem;}
+  
 
   /* -------- cosmos mode: the whole ground goes night on Cool links ------
      the supplied red is 2.29:1 on this background, so the accents are
