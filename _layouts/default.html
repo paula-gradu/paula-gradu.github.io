@@ -60,9 +60,9 @@
   /* -------- shell: rail pinned left, content flows in the padded area ---- */
   .sheet{
     position:relative;
-    max-width:920px;
+    max-width:980px;
     margin:0 auto;
-    padding:0 1.5rem 5rem 290px;
+    padding:0 1.5rem 5rem 340px;
   }
   .rail{
     position:absolute;
@@ -77,25 +77,9 @@
     display:block;
     width:230px;height:230px;
     object-fit:cover;
-    border:2px solid var(--ink);
+    border:2px solid var(--red);
     filter:saturate(.92) contrast(1.04);
   }
-  /* the img carries a filter, which makes it paint like a positioned box —
-     so the sparkles need an explicit z-index to sit on top of it */
-  .portrait-frame::before,
-  .portrait-frame::after{
-    content:"";
-    position:absolute;
-    z-index:2;
-    background-repeat:no-repeat;
-    background-size:contain;
-    pointer-events:none;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z' fill='%23ffffff'/%3E%3C/svg%3E");
-    filter:drop-shadow(0 1px 3px rgba(0,0,0,.45));
-  }
-  .portrait-frame::before{width:44px;height:44px;top:-12px;right:-12px;}
-  .portrait-frame::after{width:26px;height:26px;bottom:-8px;left:-8px;}
-
   /* -------- the little menu -------------------------------------------- */
   .sidenav{margin-top:2.2rem;}
   .sidenav ul{list-style:none;margin:0;padding:0;}
@@ -129,7 +113,10 @@
   /* -------- language switcher, top right ------------------------------- */
   .langbar{
     position:absolute;
-    top:3.9rem;
+    /* occupy exactly the h1 line box — 3.2rem margin-top, and a line box of
+       font-size 2.3rem x line-height 1.15 — so EN/FR centres on the name */
+    top:3.2rem;
+    height:2.645rem;
     right:1.5rem;
     display:flex;
     align-items:center;
@@ -260,7 +247,6 @@
   }
   /* multiply over a dark ground just muddies it */
   html.cosmos-mode body::after{mix-blend-mode:soft-light;opacity:.10;}
-  html.cosmos-mode .portrait{border-color:#4a4166;}
 
   /* -------- small screens ---------------------------------------------- */
   @media (max-width:760px){
@@ -268,8 +254,6 @@
     .rail{position:static;width:auto;margin-top:2.4rem;}
     .portrait-frame{width:170px;}
     .portrait{width:170px;height:170px;}
-    .portrait-frame::before{width:34px;height:34px;top:-10px;right:-10px;}
-    .portrait-frame::after{width:20px;height:20px;bottom:-7px;left:-7px;}
     .sidenav{margin-top:1.6rem;}
     .sidenav ul{display:flex;gap:1.1rem;flex-wrap:wrap;}
     .navlink{padding:.2rem 0 .2rem 1.1rem;font-size:.86rem;}
