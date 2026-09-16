@@ -28,6 +28,11 @@
     --orange:#e0752a;
     --gold:#d9a441;
     --night:#141024;
+    /* text-safe variants of the two light accents: the bright turquoise and
+       gold sit at 2.6:1 and 1.8:1 on cream, so they stay decoration-only
+       (rules, stars) and these darker ones carry anything you have to read */
+    --turq-ink:#186058;
+    --gold-ink:#946516;
 
     --mono:"Courier Prime","Courier New",Courier,monospace;
     --display:"Cinzel",Georgia,serif;
@@ -122,7 +127,7 @@
   /* contact line: email · CV · Scholar */
   .sheet > p:nth-of-type(1){
     margin:0 0 1.9rem;
-    color:var(--gold);
+    color:var(--gold-ink);
     font-size:.9rem;
     letter-spacing:.05em;
   }
@@ -132,8 +137,8 @@
     text-decoration-color:transparent;
   }
   .sheet > p:nth-of-type(1) a:hover{
-    color:var(--turq);
-    text-decoration-color:var(--turq);
+    color:var(--turq-ink);
+    text-decoration-color:var(--turq-ink);
   }
 
   /* bio */
@@ -156,8 +161,8 @@
     transition:color .15s ease,text-decoration-color .15s ease;
     cursor:var(--cur-hover),pointer;
   }
-  a:hover{color:var(--turq);text-decoration-color:var(--turq);}
-  a:focus-visible{outline:2px solid var(--turq);outline-offset:3px;}
+  a:hover{color:var(--turq-ink);text-decoration-color:var(--turq-ink);}
+  a:focus-visible{outline:2px solid var(--turq-ink);outline-offset:3px;}
 
   /* ---------------- section headings ---------------- */
   h3{
@@ -198,7 +203,7 @@
     position:absolute;
     left:.4rem;
     top:.8rem;
-    color:var(--gold);
+    color:var(--gold-ink);
     font-size:.72rem;
     line-height:1.9;
   }
@@ -213,7 +218,7 @@
   li > p + p{margin-top:.4rem;}
   .sheet p:empty{display:none;}
   li a{text-decoration-color:transparent;}
-  li a:hover{text-decoration-color:var(--turq);}
+  li a:hover{text-decoration-color:var(--turq-ink);}
 
   /* ---------------- cosmic footer ---------------- */
   .cosmos{
