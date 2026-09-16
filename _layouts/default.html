@@ -225,8 +225,8 @@
     cursor:var(--cur-hover),pointer;
     transition:color .15s ease,border-color .15s ease;
   }
-  .playtoggle:hover{color:var(--blue-ink);border-color:var(--blue-ink);}
-  .playtoggle:focus-visible{outline:2px solid var(--blue-ink);outline-offset:2px;}
+  .playtoggle:hover{color:#f0cd82;border-color:#f0cd82;}
+  .playtoggle:focus-visible{outline:2px solid #f0cd82;outline-offset:2px;}
   /* -------- name and contact ------------------------------------------- */
   h1{
     margin:var(--top) 0 .5rem;
@@ -325,7 +325,7 @@
 
   /* the note about the track: smaller, tilde-wrapped, softer and golden */
   .snippet{
-    margin-bottom:3.2rem;
+    margin-bottom:3.5rem;
     font-size:.82rem;
     line-height:1.7;
     opacity:.92;
@@ -462,15 +462,16 @@
   html.cosmos-mode{--navy-rgb:111,143,224;--hair-rgb:42,36,64;}
 
 
-  html.cosmos-mode .backdrop::after{
-    content:"";
+  /* Three meteors on their own paths, staggered so one crosses roughly every
+     five seconds. Each sets its own --dx/--dy/--ang, so a single keyframes
+     block serves all of them; --ang is atan(dy/dx) in each case, which keeps
+     the streak pointing along its own path on any viewport. */
+  .meteor{display:none;}
+  html.cosmos-mode .meteor{
+    display:block;
     position:absolute;
-    top:9%;
-    left:13%;
-    width:116px;
     height:1.5px;
     border-radius:2px;
-    /* soft head, tail dissolving rather than cut off */
     background:linear-gradient(90deg,
       rgba(255,255,255,0) 0%,
       rgba(255,255,255,.16) 45%,
@@ -478,21 +479,22 @@
       rgba(255,255,255,.62) 100%);
     filter:blur(.35px);
     opacity:0;
-    animation:shoot 62s linear infinite;
+    animation:shoot 16s linear infinite;
   }
-  /* The travel is 40x28 vmin and the streak is tilted 35deg — atan(28/40) —
-     so it points along its own path on any viewport instead of skidding
-     sideways. It brightens, dims, and is fully transparent by 2.4%, while
-     the motion runs to 3%: it burns out mid-sky rather than exiting frame.
-     ~1.9s of flight, then about a minute of nothing. */
+  .m1{top:8%;  left:9%;  width:116px; --dx:40vmin; --dy:28vmin; --ang:35deg; animation-delay:0s;}
+  .m2{top:24%; left:47%; width:96px;  --dx:32vmin; --dy:24vmin; --ang:37deg; animation-delay:5.3s;}
+  .m3{top:5%;  left:63%; width:132px; --dx:46vmin; --dy:30vmin; --ang:33deg; animation-delay:10.6s;}
+
+  /* ~1.8s of flight inside a 16s cycle; fully faded by 9% while the motion
+     runs to 11.25%, so each one burns out mid-sky rather than exiting frame */
   @keyframes shoot{
-    0%    {opacity:0;   transform:translate3d(0,0,0) rotate(35deg);}
-    0.35% {opacity:0;}
-    0.9%  {opacity:.45;}
-    1.6%  {opacity:.3;}
-    2.4%  {opacity:0;}
-    3%    {opacity:0;   transform:translate3d(40vmin,28vmin,0) rotate(35deg);}
-    100%  {opacity:0;   transform:translate3d(40vmin,28vmin,0) rotate(35deg);}
+    0%     {opacity:0;   transform:translate3d(0,0,0) rotate(var(--ang));}
+    1.2%   {opacity:0;}
+    3.5%   {opacity:.45;}
+    6.5%   {opacity:.3;}
+    9%     {opacity:0;}
+    11.25% {opacity:0;   transform:translate3d(var(--dx),var(--dy),0) rotate(var(--ang));}
+    100%   {opacity:0;   transform:translate3d(var(--dx),var(--dy),0) rotate(var(--ang));}
   }
 
   /* -------- 9: the sign-off breathes while the track plays ------------- */
@@ -500,7 +502,7 @@
   @keyframes moonpulse{0%,100%{opacity:1;}50%{opacity:.4;}}
 
   @media (prefers-reduced-motion:reduce){
-    html.cosmos-mode .backdrop::after{animation:none;opacity:0;}
+    html.cosmos-mode .meteor{animation:none;opacity:0;}
     html.tune-playing .signoff .moon{animation:none;}
   }
 
@@ -536,7 +538,9 @@
     .sidenav{margin-top:1.6rem;}
     .sidenav ul{display:flex;gap:1.1rem;flex-wrap:wrap;}
     .navlink{padding:.2rem 0 .2rem 1.1rem;font-size:.86rem;}
-    .topright{position:static;align-items:flex-start;margin-top:1.6rem;}
+    /* stays in the corner as on the laptop, rather than landing inline
+       between the menu and the name */
+    .topright{top:.9rem;right:1rem;}
     h1{margin:1.8rem 0 .5rem;font-size:1.85rem;}
     body{font-size:15px;}
     h3{letter-spacing:.12em;}
@@ -544,7 +548,9 @@
 </style>
 </head>
 <body>
-  <div class="backdrop" aria-hidden="true"></div>
+  <div class="backdrop" aria-hidden="true">
+    <i class="meteor m1"></i><i class="meteor m2"></i><i class="meteor m3"></i>
+  </div>
 
   <main class="sheet">
     <aside class="rail">
