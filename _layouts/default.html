@@ -34,14 +34,13 @@
 
   *{box-sizing:border-box;}
 
-  html{background:var(--bg);cursor:var(--cur),auto;}
+  html{background:var(--bg);cursor:var(--cur),auto;transition:background-color .35s ease;}
 
   body{
     margin:0;
-    background:
-      radial-gradient(900px 480px at 18% -6%, #f6f3ec 0%, rgba(246,243,236,0) 68%),
-      var(--bg);
+    background:transparent;          /* html paints the ground, uniformly */
     color:var(--ink);
+    transition:color .35s ease;
     font-family:var(--mono);
     font-size:16px;
     line-height:1.75;
@@ -238,26 +237,30 @@
   .pane li a{text-decoration-color:transparent;}
   .pane li a:hover{text-decoration-color:var(--blue-ink);}
 
-  /* -------- cosmic footer ---------------------------------------------- */
-  .cosmos{
-    margin-top:0;
-    padding:2.4rem 1rem 2rem;
-    text-align:center;
-    background:
-      radial-gradient(1.4px 1.4px at 12% 34%, #fff 50%, transparent 50%),
-      radial-gradient(1.2px 1.2px at 27% 68%, var(--gold) 50%, transparent 50%),
-      radial-gradient(1.6px 1.6px at 44% 22%, #fff 50%, transparent 50%),
-      radial-gradient(1.2px 1.2px at 61% 57%, #fff 50%, transparent 50%),
-      radial-gradient(1.5px 1.5px at 73% 31%, var(--gold) 50%, transparent 50%),
-      radial-gradient(1.2px 1.2px at 87% 64%, #fff 50%, transparent 50%),
-      radial-gradient(1.3px 1.3px at 35% 82%, #fff 50%, transparent 50%),
-      radial-gradient(1.4px 1.4px at 92% 18%, #fff 50%, transparent 50%),
-      var(--night);
-    color:#c9bfd8;
-    font-size:.78rem;
-    letter-spacing:.12em;
+
+  /* -------- cosmos mode: the whole ground goes night on Cool links ------
+     the supplied red is 2.29:1 on this background, so the accents are
+     lifted variants of the same hues rather than the light-mode values  */
+  html.cosmos-mode{
+    --bg:#141024;
+    --ink:#ece7f5;
+    --ink-soft:#b3a9c6;
+    --rule:#3b3352;
+    --surface:#211a36;
+    --red:#ff6b5e;
+    --blue-ink:#7ecbe8;
+    --gold-ink:#e8c06a;
+    background-color:var(--bg);
+    background-image:
+      radial-gradient(900px 560px at 72% 16%, rgba(104,56,150,.34), rgba(104,56,150,0) 70%),
+      radial-gradient(760px 500px at 16% 80%, rgba(38,86,142,.28), rgba(38,86,142,0) 70%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Ccircle cx='5.3' cy='94.4' r='1.05' fill='%23ffffff' opacity='0.44'/%3E%3Ccircle cx='260.4' cy='198.8' r='0.64' fill='%23ffffff' opacity='0.55'/%3E%3Ccircle cx='240.3' cy='156.9' r='0.64' fill='%23ffffff' opacity='0.54'/%3E%3Ccircle cx='133.9' cy='65.8' r='1.78' fill='%23ffffff' opacity='0.59'/%3E%3Ccircle cx='187.4' cy='118.5' r='1.6' fill='%23ffffff' opacity='0.86'/%3E%3Ccircle cx='81.5' cy='265.1' r='0.61' fill='%23ffffff' opacity='0.46'/%3E%3Ccircle cx='58.5' cy='71.1' r='1.6' fill='%23ffffff' opacity='0.36'/%3E%3Ccircle cx='112.1' cy='60.7' r='1.88' fill='%23ffffff' opacity='0.55'/%3E%3Ccircle cx='64.6' cy='165.0' r='1.3' fill='%23ffe9b0' opacity='0.57'/%3E%3Ccircle cx='206.2' cy='64.1' r='1.48' fill='%23ffffff' opacity='0.49'/%3E%3Ccircle cx='61.5' cy='21.9' r='1.59' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='119.6' cy='126.9' r='1.05' fill='%23ffffff' opacity='0.57'/%3E%3Ccircle cx='236.5' cy='276.9' r='1.58' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='92.8' cy='288.4' r='1.08' fill='%23ffffff' opacity='0.88'/%3E%3Ccircle cx='65.0' cy='30.9' r='1.77' fill='%23ffe9b0' opacity='0.92'/%3E%3Ccircle cx='53.5' cy='8.2' r='1.9' fill='%23ffffff' opacity='0.49'/%3E%3Ccircle cx='78.1' cy='237.2' r='1.75' fill='%23ffffff' opacity='0.61'/%3E%3Ccircle cx='128.4' cy='228.5' r='1.05' fill='%23ffe9b0' opacity='0.39'/%3E%3Ccircle cx='203.2' cy='182.2' r='1.79' fill='%23ffffff' opacity='0.64'/%3E%3Ccircle cx='128.0' cy='242.0' r='1.89' fill='%23ffffff' opacity='0.39'/%3E%3Ccircle cx='181.4' cy='52.2' r='1.68' fill='%23ffffff' opacity='0.35'/%3E%3Ccircle cx='91.4' cy='281.0' r='1.29' fill='%23ffffff' opacity='0.77'/%3E%3Ccircle cx='179.3' cy='265.5' r='1.68' fill='%23ffffff' opacity='0.86'/%3E%3Ccircle cx='172.0' cy='129.1' r='1.17' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='41.4' cy='151.0' r='1.43' fill='%23ffffff' opacity='0.91'/%3E%3Ccircle cx='1.1' cy='305.9' r='1.03' fill='%23ffe9b0' opacity='0.44'/%3E%3C/svg%3E");
+    background-repeat:no-repeat,no-repeat,repeat;
+    background-attachment:fixed,fixed,fixed;
   }
-  .cosmos .moon{display:block;margin-bottom:.7rem;color:var(--gold);font-size:1rem;letter-spacing:.7em;}
+  /* multiply over a dark ground just muddies it */
+  html.cosmos-mode body::after{mix-blend-mode:soft-light;opacity:.10;}
+  html.cosmos-mode .portrait{border-color:#4a4166;}
 
   /* -------- small screens ---------------------------------------------- */
   @media (max-width:760px){
@@ -301,10 +304,6 @@
     {{ content }}
   </main>
 
-  <footer class="cosmos">
-    <span class="moon">☽ ✦ ☾</span>
-    Berkeley, California
-  </footer>
 
 <script>
 (function(){
@@ -346,6 +345,7 @@
     i18n.forEach(function(el){
       el.textContent = (lang==='fr') ? el.getAttribute('data-fr') : el.getAttribute('data-en');
     });
+    root.classList.toggle('cosmos-mode', pane==='links');
     panes.forEach(function(p){
       var okPane=p.getAttribute('data-pane')===pane;
       var l=p.getAttribute('data-lang');
