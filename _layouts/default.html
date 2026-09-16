@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ site.title }}</title>
 <meta name="description" content="{{ site.description }}">
+<link rel="preload" as="image" href="{{ '/assets/portrait-cosmos.jpg' | relative_url }}">
 <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +25,7 @@
     --gold:#d9a441;      /* decoration only */
     --gold-ink:#946516;
     --night:#141024;
+    --navy:#1b2a5c;      /* regal navy for the tricolore rules */
 
     --top:5.6rem;   /* how far down the page starts */
 
@@ -60,8 +62,17 @@
   }
 
   /* -------- shell: rail pinned left, content flows in the padded area ---- */
+  .backdrop{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    background-color:var(--bg);
+    transition:background-color .35s ease;
+  }
+
   .sheet{
     position:relative;
+    z-index:1;
     max-width:980px;
     margin:0 auto;
     padding:0 1.5rem 5rem 340px;
@@ -115,10 +126,9 @@
   /* -------- language switcher, top right ------------------------------- */
   .langbar{
     position:absolute;
-    /* occupy exactly the h1 line box — var(--top) margin-top, and a line box
-       of font-size 2.3rem x line-height 1.15 — so EN/FR centres on the name */
-    top:var(--top);
-    height:2.645rem;
+    /* sits in the band between the name and the contact line, right-aligned */
+    top:calc(var(--top) + 1.83rem);
+    height:1.6rem;
     right:1.5rem;
     display:flex;
     align-items:center;
@@ -198,7 +208,7 @@
   h3::before{content:"✦";color:var(--red);font-size:.9rem;}
   h3::after{
     content:"";flex:1;height:2px;
-    background:linear-gradient(90deg,var(--red) 0 18%,var(--gold) 18% 34%,var(--blue) 34% 46%,var(--rule) 46%,rgba(201,195,184,0));
+    background:linear-gradient(90deg,var(--red) 0 20%,#ffffff 20% 40%,var(--navy) 40% 60%,var(--rule) 60% 70%,transparent);
   }
   h3 ~ h3{margin-top:3rem;}
 
@@ -240,15 +250,34 @@
     --blue-ink:#7ecbe8;
     --gold-ink:#e8c06a;
     background-color:var(--bg);
+  }
+  html.cosmos-mode .backdrop{
     background-image:
       radial-gradient(900px 560px at 72% 16%, rgba(104,56,150,.34), rgba(104,56,150,0) 70%),
       radial-gradient(760px 500px at 16% 80%, rgba(38,86,142,.28), rgba(38,86,142,0) 70%),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Ccircle cx='5.3' cy='94.4' r='1.05' fill='%23ffffff' opacity='0.44'/%3E%3Ccircle cx='260.4' cy='198.8' r='0.64' fill='%23ffffff' opacity='0.55'/%3E%3Ccircle cx='240.3' cy='156.9' r='0.64' fill='%23ffffff' opacity='0.54'/%3E%3Ccircle cx='133.9' cy='65.8' r='1.78' fill='%23ffffff' opacity='0.59'/%3E%3Ccircle cx='187.4' cy='118.5' r='1.6' fill='%23ffffff' opacity='0.86'/%3E%3Ccircle cx='81.5' cy='265.1' r='0.61' fill='%23ffffff' opacity='0.46'/%3E%3Ccircle cx='58.5' cy='71.1' r='1.6' fill='%23ffffff' opacity='0.36'/%3E%3Ccircle cx='112.1' cy='60.7' r='1.88' fill='%23ffffff' opacity='0.55'/%3E%3Ccircle cx='64.6' cy='165.0' r='1.3' fill='%23ffe9b0' opacity='0.57'/%3E%3Ccircle cx='206.2' cy='64.1' r='1.48' fill='%23ffffff' opacity='0.49'/%3E%3Ccircle cx='61.5' cy='21.9' r='1.59' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='119.6' cy='126.9' r='1.05' fill='%23ffffff' opacity='0.57'/%3E%3Ccircle cx='236.5' cy='276.9' r='1.58' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='92.8' cy='288.4' r='1.08' fill='%23ffffff' opacity='0.88'/%3E%3Ccircle cx='65.0' cy='30.9' r='1.77' fill='%23ffe9b0' opacity='0.92'/%3E%3Ccircle cx='53.5' cy='8.2' r='1.9' fill='%23ffffff' opacity='0.49'/%3E%3Ccircle cx='78.1' cy='237.2' r='1.75' fill='%23ffffff' opacity='0.61'/%3E%3Ccircle cx='128.4' cy='228.5' r='1.05' fill='%23ffe9b0' opacity='0.39'/%3E%3Ccircle cx='203.2' cy='182.2' r='1.79' fill='%23ffffff' opacity='0.64'/%3E%3Ccircle cx='128.0' cy='242.0' r='1.89' fill='%23ffffff' opacity='0.39'/%3E%3Ccircle cx='181.4' cy='52.2' r='1.68' fill='%23ffffff' opacity='0.35'/%3E%3Ccircle cx='91.4' cy='281.0' r='1.29' fill='%23ffffff' opacity='0.77'/%3E%3Ccircle cx='179.3' cy='265.5' r='1.68' fill='%23ffffff' opacity='0.86'/%3E%3Ccircle cx='172.0' cy='129.1' r='1.17' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='41.4' cy='151.0' r='1.43' fill='%23ffffff' opacity='0.91'/%3E%3Ccircle cx='1.1' cy='305.9' r='1.03' fill='%23ffe9b0' opacity='0.44'/%3E%3C/svg%3E");
     background-repeat:no-repeat,no-repeat,repeat;
-    background-attachment:fixed,fixed,fixed;
   }
+  html.cosmos-mode{--navy:#6f8fe0;}
+
   /* multiply over a dark ground just muddies it */
   html.cosmos-mode body::after{mix-blend-mode:soft-light;opacity:.10;}
+
+  .signoff{
+    margin-top:4.5rem;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:.75rem;
+    letter-spacing:.14em;
+    opacity:.8;
+  }
+  .signoff .moon{
+    display:block;
+    margin-bottom:.5rem;
+    color:var(--gold-ink);
+    font-size:.95rem;
+    letter-spacing:.6em;
+  }
 
   /* -------- small screens ---------------------------------------------- */
   @media (max-width:760px){
@@ -267,10 +296,16 @@
 </style>
 </head>
 <body>
+  <div class="backdrop" aria-hidden="true"></div>
+
   <main class="sheet">
     <aside class="rail">
       <div class="portrait-frame">
-        <img class="portrait" src="{{ '/assets/portrait.jpg' | relative_url }}" alt="Paula Gradu" width="230" height="230">
+        <img class="portrait" id="portrait"
+             src="{{ '/assets/portrait.jpg' | relative_url }}"
+             data-default="{{ '/assets/portrait.jpg' | relative_url }}"
+             data-cosmos="{{ '/assets/portrait-cosmos.jpg' | relative_url }}"
+             alt="Paula Gradu" width="230" height="230">
       </div>
       <nav class="sidenav" aria-label="Sections">
         <ul>
@@ -288,6 +323,11 @@
     </div>
 
     {{ content }}
+
+    <div class="signoff">
+      <span class="moon">☽ ✦ ☾</span>
+      Berkeley, California
+    </div>
   </main>
 
 
@@ -332,6 +372,11 @@
       el.textContent = (lang==='fr') ? el.getAttribute('data-fr') : el.getAttribute('data-en');
     });
     root.classList.toggle('cosmos-mode', pane==='links');
+    var pic=document.getElementById('portrait');
+    if(pic){
+      var want=pic.getAttribute(pane==='links'?'data-cosmos':'data-default');
+      if(pic.getAttribute('src')!==want) pic.setAttribute('src',want);
+    }
     panes.forEach(function(p){
       var okPane=p.getAttribute('data-pane')===pane;
       var l=p.getAttribute('data-lang');

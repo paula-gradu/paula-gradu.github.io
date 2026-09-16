@@ -59,7 +59,7 @@ Mes travaux mêlent optimisation en ligne, statistique moderne et théorie du co
 
 ### Cool links
 
-Under construction — the most authentically 2003 thing a page can say.
+Under construction
 
 </section>
 
@@ -67,6 +67,6 @@ Under construction — the most authentically 2003 thing a page can say.
 
 ### Liens sympas
 
-En construction — ce qu'une page peut dire de plus authentiquement 2003.
+En construction
 
 </section>
