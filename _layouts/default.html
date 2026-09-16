@@ -93,35 +93,62 @@
   .sheet > p:nth-of-type(2){grid-column:2;grid-row:3;}
   .sheet > p:nth-of-type(3){grid-column:2;grid-row:4;}
 
-  /* ---------------- portrait: square, retro print offset ------------- */
-  .portrait{
+  /* ---------------- portrait: square, sparkles at two corners -------- */
+  .portrait-frame{
     grid-column:1;
     grid-row:1 / span 4;
     align-self:start;
+    position:relative;
+    width:230px;
+    margin:3.4rem 0 0;
+  }
+  .portrait{
     display:block;
     width:230px;
     height:230px;
-    margin:3.4rem 0 0;
     object-fit:cover;
     border:2px solid var(--ink);
-    /* the red block behind is the off-register second pass of a cheap
-       colour print — the Coca-Cola/risograph note */
-    box-shadow:10px 10px 0 var(--red);
     filter:saturate(.92) contrast(1.04);
+  }
+  /* anime four-point sparkles, top-right and bottom-left */
+  .portrait-frame::before,
+  .portrait-frame::after{
+    content:"";
+    position:absolute;
+    background-repeat:no-repeat;
+    background-size:contain;
+    pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0C13 8 16 11 24 12 16 13 13 16 12 24 11 16 8 13 0 12 8 11 11 8 12 0Z' fill='%23fff4d6' stroke='%23d9a441' stroke-width='.6'/%3E%3C/svg%3E");
+    filter:drop-shadow(0 0 4px rgba(217,164,65,.85));
+    animation:twinkle 2.6s ease-in-out infinite;
+  }
+  .portrait-frame::before{
+    width:40px;height:40px;
+    top:-17px;right:-15px;
+  }
+  .portrait-frame::after{
+    width:24px;height:24px;
+    bottom:-11px;left:-10px;
+    animation-delay:1.3s;
+  }
+  @keyframes twinkle{
+    0%,100%{opacity:1;transform:scale(1) rotate(0deg);}
+    50%{opacity:.55;transform:scale(.8) rotate(-12deg);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .portrait-frame::before,
+    .portrait-frame::after{animation:none;}
   }
 
   /* ---------------- name ---------------- */
   h1{
     margin:3.2rem 0 .5rem;
-    font-family:var(--display);
-    font-size:2.6rem;
+    font-family:var(--mono);
+    font-size:2.3rem;
     font-weight:700;
-    letter-spacing:.07em;
-    line-height:1.1;
-    text-transform:uppercase;
+    letter-spacing:.02em;
+    line-height:1.15;
     color:var(--ink);
-    /* same misregistration, in red */
-    text-shadow:2px 2px 0 var(--red);
   }
 
   /* contact line: email · CV · Scholar */
@@ -251,11 +278,10 @@
   /* ---------------- small screens ---------------- */
   @media (max-width:720px){
     .sheet{display:block;max-width:560px;}
-    .portrait{
-      width:170px;height:170px;
-      margin:2.6rem 0 1.6rem;
-      box-shadow:7px 7px 0 var(--red);
-    }
+    .portrait-frame{width:170px;margin:2.6rem 0 1.6rem;}
+    .portrait{width:170px;height:170px;}
+    .portrait-frame::before{width:30px;height:30px;top:-13px;right:-11px;}
+    .portrait-frame::after{width:18px;height:18px;bottom:-8px;left:-8px;}
     h1{margin:0 0 .5rem;font-size:1.9rem;}
     body{font-size:15px;}
     h3{letter-spacing:.12em;}
@@ -264,7 +290,9 @@
 </head>
 <body>
   <main class="sheet">
-    <img class="portrait" src="{{ '/assets/portrait.jpg' | relative_url }}" alt="Paula Gradu" width="230" height="230">
+    <div class="portrait-frame">
+      <img class="portrait" src="{{ '/assets/portrait.jpg' | relative_url }}" alt="Paula Gradu" width="230" height="230">
+    </div>
     {{ content }}
     <div class="cosmos">
       <span class="moon">☽ ✦ ☾</span>
