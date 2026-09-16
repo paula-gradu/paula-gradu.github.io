@@ -69,7 +69,7 @@ Pour le second, un exemple central est [une approche individualisée de la rédu
 
 <section class="pane" data-pane="links" data-lang="en" markdown="1">
 
-### Some websites/projects I like
+### Initiatives I like
 
 - [The Psychosocial Foundation](https://www.thepsychosocialfoundation.org)
 
@@ -81,7 +81,7 @@ Pour le second, un exemple central est [une approche individualisée de la rédu
 
 <section class="pane" data-pane="links" data-lang="fr" markdown="1">
 
-### Quelques sites et projets que j'aime
+### Initiatives que j'aime
 
 - [The Psychosocial Foundation](https://www.thepsychosocialfoundation.org)
 
