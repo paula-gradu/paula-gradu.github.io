@@ -77,6 +77,10 @@ Pour le second, un exemple central est [une approche individualisée de la rédu
 
 - [The Allen Ginsberg Project](https://allenginsberg.org/2023/05/w-m-3-2/)
 
+- [Culture and Cosmos Journal](https://www.cultureandcosmos.org)
+
+### Interviews I like
+
 </section>
 
 <section class="pane" data-pane="links" data-lang="fr" markdown="1">
@@ -88,5 +92,9 @@ Pour le second, un exemple central est [une approche individualisée de la rédu
 - [Parapraxis Magazine](https://www.parapraxismagazine.com/home)
 
 - [The Allen Ginsberg Project](https://allenginsberg.org/2023/05/w-m-3-2/)
+
+- [Culture and Cosmos Journal](https://www.cultureandcosmos.org)
+
+### Entretiens que j'aime
 
 </section>
