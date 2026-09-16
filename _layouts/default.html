@@ -260,6 +260,26 @@
   .pane li a:hover{text-decoration-color:var(--blue-ink);}
 
 
+  /* -------- About pane only — Research/Miscellaneous keep their own look --
+     every link here gets the paper-title red and weight, keeps the soft
+     underline, and the rows don't take the card hover treatment          */
+  .pane[data-pane="home"] a{
+    font-weight:700;
+    color:var(--red);
+    text-decoration-color:var(--rule);
+  }
+  .pane[data-pane="home"] li a{text-decoration-color:var(--rule);}
+  .pane[data-pane="home"] a:hover{
+    color:var(--blue-ink);
+    text-decoration-color:var(--blue-ink);
+  }
+  .pane[data-pane="home"] li:hover{
+    background:none;
+    border-color:transparent;
+  }
+  /* let the list sit up close to the sentence that introduces it */
+  .pane[data-pane="home"] ul{margin-top:-.7rem;}
+
   /* -------- cosmos mode: the whole ground goes night on Cool links ------
      the supplied red is 2.29:1 on this background, so the accents are
      lifted variants of the same hues rather than the light-mode values  */
