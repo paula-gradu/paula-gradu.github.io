@@ -79,19 +79,23 @@
     letter-spacing:.06em;
     line-height:1.2;
   }
-  /* the contact line directly under the name */
+  /* the contact line directly under the name: email · CV · Scholar.
+     the paragraph colour is the gold of the literal "·" separators */
   h1 + p{
     margin:0 0 2.75rem;
     text-align:center;
-    color:var(--rouge);
+    color:var(--gold);
     font-size:.95rem;
     letter-spacing:.04em;
   }
-  h1 + p::before,
-  h1 + p::after{
-    content:"·";
-    color:var(--gold);
-    margin:0 .7rem;
+  h1 + p a{
+    color:var(--rouge);
+    margin:0 .4rem;
+    text-decoration-color:transparent;
+  }
+  h1 + p a:hover{
+    color:var(--bleu-dk);
+    text-decoration-color:var(--bleu-dk);
   }
 
   h3{
