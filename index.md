@@ -57,16 +57,24 @@ Mes travaux mêlent optimisation en ligne, statistique moderne et théorie du co
 
 <section class="pane" data-pane="links" data-lang="en" markdown="1">
 
-### Cool links
+### Some websites/projects I like
 
-Under construction
+- [The Psychosocial Foundation](https://www.thepsychosocialfoundation.org)
+
+- [Parapraxis Magazine](https://www.parapraxismagazine.com/home)
+
+- [The Allen Ginsberg Project](https://allenginsberg.org/2023/05/w-m-3-2/)
 
 </section>
 
 <section class="pane" data-pane="links" data-lang="fr" markdown="1">
 
-### Liens sympas
+### Quelques sites et projets que j'aime
 
-En construction
+- [The Psychosocial Foundation](https://www.thepsychosocialfoundation.org)
+
+- [Parapraxis Magazine](https://www.parapraxismagazine.com/home)
+
+- [The Allen Ginsberg Project](https://allenginsberg.org/2023/05/w-m-3-2/)
 
 </section>

@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ site.title }}</title>
+<title>♥ {{ site.title }}</title>
 <meta name="description" content="{{ site.description }}">
 <link rel="preload" as="image" href="{{ '/assets/portrait-cosmos.jpg' | relative_url }}">
-<link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}">
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon.png' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
@@ -26,6 +28,8 @@
     --gold-ink:#946516;
     --night:#141024;
     --navy:#1b2a5c;      /* regal navy for the tricolore rules */
+    --navy-rgb:27,42,92;
+    --white-rgb:255,255,255;
 
     --top:5.6rem;   /* how far down the page starts */
 
@@ -42,6 +46,9 @@
 
   body{
     margin:0;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
     background:transparent;          /* html paints the ground, uniformly */
     color:var(--ink);
     transition:color .35s ease;
@@ -73,9 +80,10 @@
   .sheet{
     position:relative;
     z-index:1;
+    flex:1 0 auto;
     max-width:980px;
     margin:0 auto;
-    padding:0 1.5rem 5rem 340px;
+    padding:0 1.5rem 2rem 340px;
   }
   .rail{
     position:absolute;
@@ -126,8 +134,8 @@
   /* -------- language switcher, top right ------------------------------- */
   .langbar{
     position:absolute;
-    /* sits in the band between the name and the contact line, right-aligned */
-    top:calc(var(--top) + 1.83rem);
+    /* top right corner, clear of the name entirely */
+    top:1.6rem;
     height:1.6rem;
     right:1.5rem;
     display:flex;
@@ -208,7 +216,7 @@
   h3::before{content:"✦";color:var(--red);font-size:.9rem;}
   h3::after{
     content:"";flex:1;height:2px;
-    background:linear-gradient(90deg,var(--red) 0 20%,#ffffff 20% 40%,var(--navy) 40% 60%,var(--rule) 60% 70%,transparent);
+    background:linear-gradient(90deg,var(--red) 0%,var(--red) 14%,rgba(var(--white-rgb),.5) 30%,rgba(var(--navy-rgb),.4) 50%,rgba(var(--navy-rgb),.13) 72%,rgba(var(--navy-rgb),0) 100%);
   }
   h3 ~ h3{margin-top:3rem;}
 
@@ -258,13 +266,17 @@
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Ccircle cx='5.3' cy='94.4' r='1.05' fill='%23ffffff' opacity='0.44'/%3E%3Ccircle cx='260.4' cy='198.8' r='0.64' fill='%23ffffff' opacity='0.55'/%3E%3Ccircle cx='240.3' cy='156.9' r='0.64' fill='%23ffffff' opacity='0.54'/%3E%3Ccircle cx='133.9' cy='65.8' r='1.78' fill='%23ffffff' opacity='0.59'/%3E%3Ccircle cx='187.4' cy='118.5' r='1.6' fill='%23ffffff' opacity='0.86'/%3E%3Ccircle cx='81.5' cy='265.1' r='0.61' fill='%23ffffff' opacity='0.46'/%3E%3Ccircle cx='58.5' cy='71.1' r='1.6' fill='%23ffffff' opacity='0.36'/%3E%3Ccircle cx='112.1' cy='60.7' r='1.88' fill='%23ffffff' opacity='0.55'/%3E%3Ccircle cx='64.6' cy='165.0' r='1.3' fill='%23ffe9b0' opacity='0.57'/%3E%3Ccircle cx='206.2' cy='64.1' r='1.48' fill='%23ffffff' opacity='0.49'/%3E%3Ccircle cx='61.5' cy='21.9' r='1.59' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='119.6' cy='126.9' r='1.05' fill='%23ffffff' opacity='0.57'/%3E%3Ccircle cx='236.5' cy='276.9' r='1.58' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='92.8' cy='288.4' r='1.08' fill='%23ffffff' opacity='0.88'/%3E%3Ccircle cx='65.0' cy='30.9' r='1.77' fill='%23ffe9b0' opacity='0.92'/%3E%3Ccircle cx='53.5' cy='8.2' r='1.9' fill='%23ffffff' opacity='0.49'/%3E%3Ccircle cx='78.1' cy='237.2' r='1.75' fill='%23ffffff' opacity='0.61'/%3E%3Ccircle cx='128.4' cy='228.5' r='1.05' fill='%23ffe9b0' opacity='0.39'/%3E%3Ccircle cx='203.2' cy='182.2' r='1.79' fill='%23ffffff' opacity='0.64'/%3E%3Ccircle cx='128.0' cy='242.0' r='1.89' fill='%23ffffff' opacity='0.39'/%3E%3Ccircle cx='181.4' cy='52.2' r='1.68' fill='%23ffffff' opacity='0.35'/%3E%3Ccircle cx='91.4' cy='281.0' r='1.29' fill='%23ffffff' opacity='0.77'/%3E%3Ccircle cx='179.3' cy='265.5' r='1.68' fill='%23ffffff' opacity='0.86'/%3E%3Ccircle cx='172.0' cy='129.1' r='1.17' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='41.4' cy='151.0' r='1.43' fill='%23ffffff' opacity='0.91'/%3E%3Ccircle cx='1.1' cy='305.9' r='1.03' fill='%23ffe9b0' opacity='0.44'/%3E%3C/svg%3E");
     background-repeat:no-repeat,no-repeat,repeat;
   }
-  html.cosmos-mode{--navy:#6f8fe0;}
+  html.cosmos-mode{--navy:#6f8fe0;--navy-rgb:111,143,224;}
 
   /* multiply over a dark ground just muddies it */
   html.cosmos-mode body::after{mix-blend-mode:soft-light;opacity:.10;}
 
   .signoff{
-    margin-top:4.5rem;
+    position:relative;
+    z-index:1;
+    flex-shrink:0;
+    margin-top:3rem;
+    padding:0 1.5rem 2.6rem;
     text-align:center;
     color:var(--ink-soft);
     font-size:.75rem;
@@ -309,9 +321,9 @@
       </div>
       <nav class="sidenav" aria-label="Sections">
         <ul>
-          <li><a class="navlink" href="#home" data-target="home">Home</a></li>
-          <li><a class="navlink" href="#publications" data-target="publications">Publications</a></li>
-          <li><a class="navlink" href="#links" data-target="links">Cool links</a></li>
+          <li><a class="navlink" href="#home" data-target="home">About</a></li>
+          <li><a class="navlink" href="#publications" data-target="publications">Research</a></li>
+          <li><a class="navlink" href="#links" data-target="links">Miscellaneous</a></li>
         </ul>
       </nav>
     </aside>
@@ -324,11 +336,12 @@
 
     {{ content }}
 
-    <div class="signoff">
-      <span class="moon">☽ ✦ ☾</span>
-      Berkeley, California
-    </div>
   </main>
+
+  <div class="signoff">
+    <span class="moon">☽ ✦ ☾</span>
+    Berkeley, California
+  </div>
 
 
 <script>
@@ -337,8 +350,8 @@
   body.classList.add('has-js');
 
   var LABELS={
-    en:{home:'Home',publications:'Publications',links:'Cool links'},
-    fr:{home:'Accueil',publications:'Publications',links:'Liens sympas'}
+    en:{home:'About',publications:'Research',links:'Miscellaneous'},
+    fr:{home:'\u00c0 propos',publications:'Recherche',links:'Divers'}
   };
 
   function store(k,v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v); }catch(e){ return null; } }
