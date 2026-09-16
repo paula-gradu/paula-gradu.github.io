@@ -73,13 +73,17 @@ In this page I want to collect things that remind me of a vision of the internet
 
 ### Initiatives I like
 
-- [The Psychosocial Foundation](https://www.thepsychosocialfoundation.org)
+- [The Psychosocial Foundation](https://www.thepsychosocialfoundation.org) <span class="kicker">Foundation</span>
+  <span class="desc">The Psychosocial Foundation exists to advance our understanding of where the social, political, and psychological converge.</span>
 
-- [Parapraxis Magazine](https://www.parapraxismagazine.com/home)
+- [Parapraxis Magazine](https://www.parapraxismagazine.com/home) <span class="kicker">Magazine</span>
+  <span class="desc">Parapraxis is committed to a relatively unknown endeavor: to engender a psychoanalysis for the twenty-first century so that we might inquire into, and uncover, the psychosocial dimension of our lives.</span>
 
-- [The Allen Ginsberg Project](https://allenginsberg.org/2023/05/w-m-3-2/)
+- [The Allen Ginsberg Project](https://allenginsberg.org/2023/05/w-m-3-2/) <span class="kicker">Archive</span>
+  <span class="desc">Eclectic and comprehensive collection on various lectures, photos, observations, comments, and a bunch of other things tied to the Beat Generation.</span>
 
-- [Culture and Cosmos Journal](https://www.cultureandcosmos.org)
+- [Culture and Cosmos Journal](https://www.cultureandcosmos.org) <span class="kicker">Journal</span>
+  <span class="desc">The only peer-reviewed journal to focus on the history of astrology and cultural aspects of the history of astronomy.</span>
 
 ### Interviews I like
 
@@ -91,13 +95,17 @@ Sur cette page, je veux rassembler des choses qui me rappellent une certaine vis
 
 ### Initiatives que j'aime
 
-- [The Psychosocial Foundation](https://www.thepsychosocialfoundation.org)
+- [The Psychosocial Foundation](https://www.thepsychosocialfoundation.org) <span class="kicker">Fondation</span>
+  <span class="desc">La Psychosocial Foundation a pour but d'approfondir notre compréhension du point de rencontre entre le social, le politique et le psychologique.</span>
 
-- [Parapraxis Magazine](https://www.parapraxismagazine.com/home)
+- [Parapraxis Magazine](https://www.parapraxismagazine.com/home) <span class="kicker">Magazine</span>
+  <span class="desc">Parapraxis s'attache à une entreprise encore peu explorée : faire naître une psychanalyse pour le XXI<sup>e</sup> siècle, afin d'interroger et de mettre au jour la dimension psychosociale de nos vies.</span>
 
-- [The Allen Ginsberg Project](https://allenginsberg.org/2023/05/w-m-3-2/)
+- [The Allen Ginsberg Project](https://allenginsberg.org/2023/05/w-m-3-2/) <span class="kicker">Archives</span>
+  <span class="desc">Une collection éclectique et foisonnante de conférences, de photographies, d'observations, de commentaires et de bien d'autres choses liées à la Beat Generation.</span>
 
-- [Culture and Cosmos Journal](https://www.cultureandcosmos.org)
+- [Culture and Cosmos Journal](https://www.cultureandcosmos.org) <span class="kicker">Revue</span>
+  <span class="desc">La seule revue à comité de lecture consacrée à l'histoire de l'astrologie et aux aspects culturels de l'histoire de l'astronomie.</span>
 
 ### Entretiens que j'aime
 

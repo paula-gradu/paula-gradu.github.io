@@ -324,6 +324,58 @@
   .pane[data-pane="links"] > p a{text-decoration-color:currentColor;}
   .hrt{color:var(--red);}
 
+  /* -------- Miscellaneous entries -------------------------------------
+     numbered index in place of the star, a pink kicker tag, a sepia
+     one-liner, an amethyst visited state, and moons for the divider    */
+  .pane[data-pane="links"] ul{counter-reset:idx;}
+  .pane[data-pane="links"] li{
+    --row-marker-left:.45rem;
+    counter-increment:idx;
+    padding-left:2.5rem;
+  }
+  .pane[data-pane="links"] li::before{
+    content:counter(idx,decimal-leading-zero);
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.06em;
+    color:var(--gold-ink);
+  }
+  .pane[data-pane="links"] li:hover::before{color:#ff9ec7;}
+
+  .kicker{
+    display:inline-block;
+    margin-left:.55rem;
+    padding:.04rem .42rem;
+    border:1px solid rgba(255,158,199,.38);
+    color:#ff9ec7;
+    font-size:.6rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    vertical-align:.14em;
+    white-space:nowrap;
+  }
+  .desc{
+    display:block;
+    margin-top:.34rem;
+    color:var(--ink-soft);
+    font-size:.86rem;
+    line-height:1.6;
+    letter-spacing:.01em;
+  }
+
+  /* :visited only accepts a colour, and only a literal one reliably */
+  .pane[data-pane="links"] li a:visited{color:#b79ae0;}
+
+  .pane[data-pane="links"] h3::after{
+    content:"\263E \25D0 \25CF \25D1 \263D";
+    flex:none;
+    height:auto;
+    background:none;
+    color:var(--gold-ink);
+    font-size:.78rem;
+    letter-spacing:.3em;
+  }
+
   /* -------- About pane only — Research/Miscellaneous keep their own look --
      every link here gets the paper-title red and weight, keeps the soft
      underline, and the rows don't take the card hover treatment          */
@@ -368,12 +420,45 @@
   }
   html.cosmos-mode .backdrop{
     background-image:
+      /* scanlines, then a 16mm vignette, over the nebulae and stars */
+      repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, rgba(255,255,255,0) 1px 3px),
+      radial-gradient(ellipse 120% 100% at 50% 45%, rgba(0,0,0,0) 42%, rgba(0,0,0,.55) 100%),
       radial-gradient(900px 560px at 72% 16%, rgba(104,56,150,.34), rgba(104,56,150,0) 70%),
       radial-gradient(760px 500px at 16% 80%, rgba(38,86,142,.28), rgba(38,86,142,0) 70%),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Ccircle cx='5.3' cy='94.4' r='1.05' fill='%23ffffff' opacity='0.44'/%3E%3Ccircle cx='260.4' cy='198.8' r='0.64' fill='%23ffffff' opacity='0.55'/%3E%3Ccircle cx='240.3' cy='156.9' r='0.64' fill='%23ffffff' opacity='0.54'/%3E%3Ccircle cx='133.9' cy='65.8' r='1.78' fill='%23ffffff' opacity='0.59'/%3E%3Ccircle cx='187.4' cy='118.5' r='1.6' fill='%23ffffff' opacity='0.86'/%3E%3Ccircle cx='81.5' cy='265.1' r='0.61' fill='%23ffffff' opacity='0.46'/%3E%3Ccircle cx='58.5' cy='71.1' r='1.6' fill='%23ffffff' opacity='0.36'/%3E%3Ccircle cx='112.1' cy='60.7' r='1.88' fill='%23ffffff' opacity='0.55'/%3E%3Ccircle cx='64.6' cy='165.0' r='1.3' fill='%23ffe9b0' opacity='0.57'/%3E%3Ccircle cx='206.2' cy='64.1' r='1.48' fill='%23ffffff' opacity='0.49'/%3E%3Ccircle cx='61.5' cy='21.9' r='1.59' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='119.6' cy='126.9' r='1.05' fill='%23ffffff' opacity='0.57'/%3E%3Ccircle cx='236.5' cy='276.9' r='1.58' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='92.8' cy='288.4' r='1.08' fill='%23ffffff' opacity='0.88'/%3E%3Ccircle cx='65.0' cy='30.9' r='1.77' fill='%23ffe9b0' opacity='0.92'/%3E%3Ccircle cx='53.5' cy='8.2' r='1.9' fill='%23ffffff' opacity='0.49'/%3E%3Ccircle cx='78.1' cy='237.2' r='1.75' fill='%23ffffff' opacity='0.61'/%3E%3Ccircle cx='128.4' cy='228.5' r='1.05' fill='%23ffe9b0' opacity='0.39'/%3E%3Ccircle cx='203.2' cy='182.2' r='1.79' fill='%23ffffff' opacity='0.64'/%3E%3Ccircle cx='128.0' cy='242.0' r='1.89' fill='%23ffffff' opacity='0.39'/%3E%3Ccircle cx='181.4' cy='52.2' r='1.68' fill='%23ffffff' opacity='0.35'/%3E%3Ccircle cx='91.4' cy='281.0' r='1.29' fill='%23ffffff' opacity='0.77'/%3E%3Ccircle cx='179.3' cy='265.5' r='1.68' fill='%23ffffff' opacity='0.86'/%3E%3Ccircle cx='172.0' cy='129.1' r='1.17' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='41.4' cy='151.0' r='1.43' fill='%23ffffff' opacity='0.91'/%3E%3Ccircle cx='1.1' cy='305.9' r='1.03' fill='%23ffe9b0' opacity='0.44'/%3E%3C/svg%3E");
-    background-repeat:no-repeat,no-repeat,repeat;
+    background-repeat:repeat,no-repeat,no-repeat,no-repeat,repeat;
   }
   html.cosmos-mode{--navy-rgb:111,143,224;--red-rgb:255,107,94;--hair-rgb:42,36,64;}
+
+
+  html.cosmos-mode .backdrop::after{
+    content:"";
+    position:absolute;
+    top:4%;
+    left:-14%;
+    width:170px;
+    height:2px;
+    border-radius:2px;
+    background:linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.85));
+    opacity:0;
+    animation:shoot 26s linear infinite;
+  }
+  /* ~1.8s of travel, then ~24s of nothing — restraint is the point */
+  @keyframes shoot{
+    0%   {opacity:0; transform:translate3d(0,0,0) rotate(24deg);}
+    1%   {opacity:.9;}
+    7%   {opacity:0; transform:translate3d(128vw,54vh,0) rotate(24deg);}
+    100% {opacity:0; transform:translate3d(128vw,54vh,0) rotate(24deg);}
+  }
+
+  /* -------- 9: the sign-off breathes while the track plays ------------- */
+  html.tune-playing .signoff .moon{animation:moonpulse 2.6s ease-in-out infinite;}
+  @keyframes moonpulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+
+  @media (prefers-reduced-motion:reduce){
+    html.cosmos-mode .backdrop::after{animation:none;opacity:0;}
+    html.tune-playing .signoff .moon{animation:none;}
+  }
 
   /* multiply over a dark ground just muddies it */
   html.cosmos-mode body::after{mix-blend-mode:soft-light;opacity:.10;}
@@ -488,6 +573,15 @@
   var player=document.querySelector('.player');
   var toggle=document.querySelector('.playtoggle');
   if(tune) tune.volume=.7;
+
+  /* outbound links and the CV open in their own tab; the pane and language
+     controls are in-page anchors and must keep behaving as such */
+  [].slice.call(document.querySelectorAll('a[href]')).forEach(function(a){
+    var h=a.getAttribute('href')||'';
+    if(h.charAt(0)==='#' || h.indexOf('mailto:')===0) return;
+    a.setAttribute('target','_blank');
+    a.setAttribute('rel','noopener noreferrer');
+  });
   if(!navLinks.some(function(b){return b.getAttribute('data-target')===pane;})) pane='home';
 
   i18n.forEach(function(el){ el.setAttribute('data-en', el.textContent); });
@@ -540,6 +634,7 @@
   function syncPlayer(){
     if(!tune||!toggle) return;
     var playing = !tune.paused && !tune.ended;
+    root.classList.toggle('tune-playing', playing);
     toggle.querySelector('.glyph').textContent = playing ? '❚❚' : '▶';
     toggle.querySelector('.ptext').textContent = LABELS[lang][playing?'pause':'play'];
     toggle.setAttribute('aria-pressed', playing?'true':'false');
