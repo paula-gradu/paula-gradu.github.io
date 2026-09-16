@@ -69,6 +69,8 @@ Pour le second, un exemple central est [une approche individualisée de la rédu
 
 <section class="pane" data-pane="links" data-lang="en" markdown="1">
 
+In this page I want to collect things that remind me of a vision of the internet and the digital world we were all once excited for, something that now seems like retro futurism. But maybe since now we have access to more coding help (for better or worse), maybe we can finally work on the atmospheric and aesthetic qualities of this virtual realm we are so intertwined with. The little snippet playing in the background is from [this video from nine years ago by Lana](https://www.youtube.com/watch?v=Gb1lte9uljI). Please watch it. <span class="hrt">&#9829;</span>
+
 ### Initiatives I like
 
 - [The Psychosocial Foundation](https://www.thepsychosocialfoundation.org)
@@ -84,6 +86,8 @@ Pour le second, un exemple central est [une approche individualisée de la rédu
 </section>
 
 <section class="pane" data-pane="links" data-lang="fr" markdown="1">
+
+Sur cette page, je veux rassembler des choses qui me rappellent une certaine vision d'internet et du monde numérique qui nous enthousiasmait autrefois, et qui ressemble aujourd'hui à du rétrofuturisme. Mais peut-être que, maintenant que nous avons accès à bien plus d'aide pour coder (pour le meilleur ou pour le pire), nous pourrons enfin soigner les qualités atmosphériques et esthétiques de ce monde virtuel auquel nous sommes si étroitement liés. Le petit extrait qui joue en fond vient de [cette vidéo de Lana, publiée il y a neuf ans](https://www.youtube.com/watch?v=Gb1lte9uljI). Regardez-la. <span class="hrt">&#9829;</span>
 
 ### Initiatives que j'aime
 
