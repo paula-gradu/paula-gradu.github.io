@@ -43,7 +43,16 @@
 
   *{box-sizing:border-box;}
 
-  html{background:var(--bg);cursor:var(--cur),auto;transition:background-color .35s ease;}
+  html{
+    background:var(--bg);
+    cursor:var(--cur),auto;
+    transition:background-color .35s ease;
+    /* About/Research are long enough to scroll, Miscellaneous is not — without
+       this the scrollbar appears and disappears, the viewport width changes,
+       and the centred sheet (and so the rail) jumps sideways between panes */
+    overflow-y:scroll;
+    scrollbar-gutter:stable;
+  }
 
   body{
     margin:0;
