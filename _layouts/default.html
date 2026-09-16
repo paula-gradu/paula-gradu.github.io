@@ -321,7 +321,7 @@
     color:var(--ink-soft);
     margin-bottom:1rem;
   }
-  .hrt{color:var(--red);}
+  .spark{color:var(--gold-ink);}
 
   /* the note about the track: smaller, tilde-wrapped, softer and golden */
   .snippet{
@@ -333,12 +333,12 @@
   .snippet::before{content:"~ ";color:var(--gold-ink);}
   .snippet::after{content:" ~";color:var(--gold-ink);}
   .snippet a{
-    color:var(--gold-ink);
-    text-decoration-color:rgba(232,192,106,.45);
+    color:#ff9ec7;                               /* the kicker pink */
+    text-decoration-color:rgba(255,158,199,.45);
   }
   .snippet a:hover{
-    color:#f0cd82;
-    text-decoration-color:#f0cd82;
+    color:#ffc0da;
+    text-decoration-color:#ffc0da;
   }
 
   /* -------- Miscellaneous entries -------------------------------------
@@ -441,7 +441,10 @@
     --ink-soft:#b3a9c6;
     --rule:#3b3352;
     --surface:#211a36;
-    --red:#ff6b5e;
+    /* the red accent becomes the gold on this ground, which recolours links,
+       the active menu item, the switcher and the play button at once */
+    --red:var(--gold-ink);
+    --red-rgb:232,192,106;
     --blue-ink:#7ecbe8;
     --gold-ink:#e8c06a;
     background-color:var(--bg);
@@ -456,7 +459,7 @@
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Ccircle cx='5.3' cy='94.4' r='1.05' fill='%23ffffff' opacity='0.44'/%3E%3Ccircle cx='260.4' cy='198.8' r='0.64' fill='%23ffffff' opacity='0.55'/%3E%3Ccircle cx='240.3' cy='156.9' r='0.64' fill='%23ffffff' opacity='0.54'/%3E%3Ccircle cx='133.9' cy='65.8' r='1.78' fill='%23ffffff' opacity='0.59'/%3E%3Ccircle cx='187.4' cy='118.5' r='1.6' fill='%23ffffff' opacity='0.86'/%3E%3Ccircle cx='81.5' cy='265.1' r='0.61' fill='%23ffffff' opacity='0.46'/%3E%3Ccircle cx='58.5' cy='71.1' r='1.6' fill='%23ffffff' opacity='0.36'/%3E%3Ccircle cx='112.1' cy='60.7' r='1.88' fill='%23ffffff' opacity='0.55'/%3E%3Ccircle cx='64.6' cy='165.0' r='1.3' fill='%23ffe9b0' opacity='0.57'/%3E%3Ccircle cx='206.2' cy='64.1' r='1.48' fill='%23ffffff' opacity='0.49'/%3E%3Ccircle cx='61.5' cy='21.9' r='1.59' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='119.6' cy='126.9' r='1.05' fill='%23ffffff' opacity='0.57'/%3E%3Ccircle cx='236.5' cy='276.9' r='1.58' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='92.8' cy='288.4' r='1.08' fill='%23ffffff' opacity='0.88'/%3E%3Ccircle cx='65.0' cy='30.9' r='1.77' fill='%23ffe9b0' opacity='0.92'/%3E%3Ccircle cx='53.5' cy='8.2' r='1.9' fill='%23ffffff' opacity='0.49'/%3E%3Ccircle cx='78.1' cy='237.2' r='1.75' fill='%23ffffff' opacity='0.61'/%3E%3Ccircle cx='128.4' cy='228.5' r='1.05' fill='%23ffe9b0' opacity='0.39'/%3E%3Ccircle cx='203.2' cy='182.2' r='1.79' fill='%23ffffff' opacity='0.64'/%3E%3Ccircle cx='128.0' cy='242.0' r='1.89' fill='%23ffffff' opacity='0.39'/%3E%3Ccircle cx='181.4' cy='52.2' r='1.68' fill='%23ffffff' opacity='0.35'/%3E%3Ccircle cx='91.4' cy='281.0' r='1.29' fill='%23ffffff' opacity='0.77'/%3E%3Ccircle cx='179.3' cy='265.5' r='1.68' fill='%23ffffff' opacity='0.86'/%3E%3Ccircle cx='172.0' cy='129.1' r='1.17' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='41.4' cy='151.0' r='1.43' fill='%23ffffff' opacity='0.91'/%3E%3Ccircle cx='1.1' cy='305.9' r='1.03' fill='%23ffe9b0' opacity='0.44'/%3E%3C/svg%3E");
     background-repeat:repeat,no-repeat,no-repeat,no-repeat,repeat;
   }
-  html.cosmos-mode{--navy-rgb:111,143,224;--red-rgb:255,107,94;--hair-rgb:42,36,64;}
+  html.cosmos-mode{--navy-rgb:111,143,224;--hair-rgb:42,36,64;}
 
 
   html.cosmos-mode .backdrop::after{
