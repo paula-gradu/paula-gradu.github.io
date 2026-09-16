@@ -22,16 +22,19 @@
     --rule:#c9c3b8;
     --ink:#241a16;
     --ink-soft:#6b5344;
-    --blue:#2596be;      /* decoration only — 2.7:1 on the background */
-    --blue-ink:#155a73;  /* the readable sibling, 6.2:1 */
-    --gold:#d9a441;      /* decoration only */
-    --gold-ink:#946516;
-    --night:#141024;
-    --navy:#1b2a5c;      /* regal navy for the tricolore rules */
+    --blue-ink:#155a73;       /* readable teal for link hover, 6.2:1 */
+    --gold-ink:#946516;       /* the star markers */
+    --night:#141024;          /* the cosmos ground */
+
+    /* channels, so the section rule can step its alpha */
     --red-rgb:163,6,2;
-    --hair-rgb:220,214,202;   /* a hair darker than the ground */
     --navy-rgb:27,42,92;
     --white-rgb:255,255,255;
+    --hair-rgb:220,214,202;   /* a hair darker than the ground */
+
+    /* one size and one optical lift for every star on the page */
+    --marker-size:.76rem;
+    --marker-rise:2px;
 
     --top:5.6rem;   /* how far down the page starts */
 
@@ -116,6 +119,22 @@
     border:2px solid var(--red);
     filter:saturate(.92) contrast(1.04);
   }
+  /* -------- star markers ----------------------------------------------
+     Every star on the page — list rows and menu items — is placed the same
+     way. A row declares --row-pad (its own padding-top) and --row-line (the
+     height of its first line box); the marker is given a box of exactly that
+     height, so the glyph centres on the line rather than riding at the top,
+     then lifted by --marker-rise for optical balance.                     */
+  .pane li::before,
+  .navlink::before{
+    content:"✦";
+    position:absolute;
+    top:calc(var(--row-pad) - var(--marker-rise));
+    height:var(--row-line);
+    line-height:var(--row-line);
+    font-size:var(--marker-size);
+  }
+
   /* -------- the little menu -------------------------------------------- */
   .sidenav{margin-top:2.2rem;}
   .sidenav ul{list-style:none;margin:0;padding:0;}
@@ -123,8 +142,10 @@
   .sidenav li::before{content:none;}
   .sidenav li:hover{background:none;border-color:transparent;}
   .navlink{
+    --row-pad:.34rem;
+    --row-line:1.61rem;       /* .92rem text x 1.75 line-height */
     display:block;
-    padding:.34rem 0 .34rem 1.4rem;
+    padding:var(--row-pad) 0 var(--row-pad) 1.4rem;
     position:relative;
     color:var(--ink);
     font-size:.92rem;
@@ -133,14 +154,7 @@
     cursor:var(--cur-hover),pointer;
     transition:color .15s ease;
   }
-  .navlink::before{
-    content:"✦";
-    position:absolute;
-    left:0;
-    color:var(--rule);
-    font-size:.7rem;
-    transition:color .15s ease;
-  }
+  .navlink::before{left:0;color:var(--rule);transition:color .15s ease;}
   .navlink:hover{color:var(--red);}
   .navlink:hover::before{color:var(--red);}
   .navlink.is-on{color:var(--red);font-weight:700;}
@@ -240,24 +254,15 @@
   /* -------- publications ----------------------------------------------- */
   .pane ul{list-style:none;margin:0;padding:0;}
   .pane li{
+    --row-pad:.5rem;
+    --row-line:1.75rem;       /* 1rem text x 1.75 line-height */
     position:relative;
     margin:0 0 .15rem;
-    padding:.5rem 1rem .5rem 1.75rem;
+    padding:var(--row-pad) 1rem var(--row-pad) 1.75rem;
     border:1px solid transparent;
     transition:background .16s ease,border-color .16s ease;
   }
-  .pane li::before{
-    content:"✦";
-    position:absolute;
-    left:.4rem;
-    top:.5rem;              /* = the li's padding-top */
-    /* give the marker a box exactly as tall as the row's first line
-       (1rem text x 1.75 line-height) and centre the glyph inside it */
-    height:1.75rem;
-    line-height:1.75rem;
-    color:var(--gold-ink);
-    font-size:.76rem;
-  }
+  .pane li::before{left:.4rem;color:var(--gold-ink);}
   .pane li:hover::before{color:var(--red);}
   .pane li:hover{background:var(--surface);border-color:var(--rule);}
   /* kramdown emits loose lists (<p> inside each <li>) for blank-line
@@ -295,18 +300,17 @@
      within itself, and keep a little more air before the next paragraph */
   .pane[data-pane="home"] ul{margin-top:-1rem;margin-bottom:.7rem;}
   .pane[data-pane="home"] li{
+    --row-pad:.2rem;          /* the marker follows this automatically */
     margin:0;
-    padding-top:.2rem;
-    padding-bottom:.2rem;
     padding-left:2.1rem;
   }
-  .pane[data-pane="home"] li::before{top:.2rem;left:.75rem;}
+  .pane[data-pane="home"] li::before{left:.75rem;}
 
   /* -------- cosmos mode: the whole ground goes night on Cool links ------
      the supplied red is 2.29:1 on this background, so the accents are
      lifted variants of the same hues rather than the light-mode values  */
   html.cosmos-mode{
-    --bg:#141024;
+    --bg:var(--night);
     --ink:#ece7f5;
     --ink-soft:#b3a9c6;
     --rule:#3b3352;
@@ -323,7 +327,7 @@
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Ccircle cx='5.3' cy='94.4' r='1.05' fill='%23ffffff' opacity='0.44'/%3E%3Ccircle cx='260.4' cy='198.8' r='0.64' fill='%23ffffff' opacity='0.55'/%3E%3Ccircle cx='240.3' cy='156.9' r='0.64' fill='%23ffffff' opacity='0.54'/%3E%3Ccircle cx='133.9' cy='65.8' r='1.78' fill='%23ffffff' opacity='0.59'/%3E%3Ccircle cx='187.4' cy='118.5' r='1.6' fill='%23ffffff' opacity='0.86'/%3E%3Ccircle cx='81.5' cy='265.1' r='0.61' fill='%23ffffff' opacity='0.46'/%3E%3Ccircle cx='58.5' cy='71.1' r='1.6' fill='%23ffffff' opacity='0.36'/%3E%3Ccircle cx='112.1' cy='60.7' r='1.88' fill='%23ffffff' opacity='0.55'/%3E%3Ccircle cx='64.6' cy='165.0' r='1.3' fill='%23ffe9b0' opacity='0.57'/%3E%3Ccircle cx='206.2' cy='64.1' r='1.48' fill='%23ffffff' opacity='0.49'/%3E%3Ccircle cx='61.5' cy='21.9' r='1.59' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='119.6' cy='126.9' r='1.05' fill='%23ffffff' opacity='0.57'/%3E%3Ccircle cx='236.5' cy='276.9' r='1.58' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='92.8' cy='288.4' r='1.08' fill='%23ffffff' opacity='0.88'/%3E%3Ccircle cx='65.0' cy='30.9' r='1.77' fill='%23ffe9b0' opacity='0.92'/%3E%3Ccircle cx='53.5' cy='8.2' r='1.9' fill='%23ffffff' opacity='0.49'/%3E%3Ccircle cx='78.1' cy='237.2' r='1.75' fill='%23ffffff' opacity='0.61'/%3E%3Ccircle cx='128.4' cy='228.5' r='1.05' fill='%23ffe9b0' opacity='0.39'/%3E%3Ccircle cx='203.2' cy='182.2' r='1.79' fill='%23ffffff' opacity='0.64'/%3E%3Ccircle cx='128.0' cy='242.0' r='1.89' fill='%23ffffff' opacity='0.39'/%3E%3Ccircle cx='181.4' cy='52.2' r='1.68' fill='%23ffffff' opacity='0.35'/%3E%3Ccircle cx='91.4' cy='281.0' r='1.29' fill='%23ffffff' opacity='0.77'/%3E%3Ccircle cx='179.3' cy='265.5' r='1.68' fill='%23ffffff' opacity='0.86'/%3E%3Ccircle cx='172.0' cy='129.1' r='1.17' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='41.4' cy='151.0' r='1.43' fill='%23ffffff' opacity='0.91'/%3E%3Ccircle cx='1.1' cy='305.9' r='1.03' fill='%23ffe9b0' opacity='0.44'/%3E%3C/svg%3E");
     background-repeat:no-repeat,no-repeat,repeat;
   }
-  html.cosmos-mode{--navy:#6f8fe0;--navy-rgb:111,143,224;--red-rgb:255,107,94;--hair-rgb:42,36,64;}
+  html.cosmos-mode{--navy-rgb:111,143,224;--red-rgb:255,107,94;--hair-rgb:42,36,64;}
 
   /* multiply over a dark ground just muddies it */
   html.cosmos-mode body::after{mix-blend-mode:soft-light;opacity:.10;}
