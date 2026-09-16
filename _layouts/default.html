@@ -321,13 +321,17 @@
   /* -------- Miscellaneous intro ---------------------------------------- */
   .pane[data-pane="links"] > p{
     color:var(--ink-soft);
+  }
+  /* the tight gap belongs to the opening paragraph only — scoping it with
+     :not() keeps this rule from outranking .snippet's own bottom margin */
+  .pane[data-pane="links"] > p:not(.snippet){
     margin-bottom:.5rem;
   }
   .spark{color:var(--gold-ink);}
 
   /* the note about the track: smaller, tilde-wrapped, softer and golden */
   .snippet{
-    margin-bottom:8rem;
+    margin-bottom:5rem;
     font-size:.76rem;
     line-height:1.7;
     opacity:.78;          /* still 5.5:1 against the ground at this alpha */
