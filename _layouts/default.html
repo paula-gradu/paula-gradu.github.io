@@ -114,7 +114,8 @@
 
   /* ---------- text ---------- */
   p{margin:0 0 1.25rem;}
-  .sheet > p:nth-of-type(2){
+  /* every paragraph after the contact line is bio prose (there are two) */
+  .sheet > p:nth-of-type(n+2){
     font-size:1.02rem;
     line-height:1.85;
   }
