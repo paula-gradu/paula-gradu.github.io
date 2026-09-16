@@ -9,7 +9,15 @@ layout: default
 
 I'm a fifth year PhD candidate in EECS at UC Berkeley advised by [Ben Recht](http://people.eecs.berkeley.edu/~brecht/index.html) and [Michael Jordan](http://people.eecs.berkeley.edu/~jordan/). Before, I was very fortunate to be advised by [Elad Hazan](https://www.cs.princeton.edu/~ehazan/) (at Princeton) who taught me the ways of research.
 
-My work integrates techniques from online optimization, modern statistics and control theory and is focused on developing adaptive methods for **evaluating interventions** and **individualizing interventions** with provable guarantees. For the former, examples include: [identifying disparities across subgroups in incident databases](https://arxiv.org/abs/2502.08166), [proposing a variance-optimal sequential experiment design](https://arxiv.org/abs/2305.17187), and [designing methodology for valid post-causal-discovery inference](https://arxiv.org/abs/2208.05949). For the latter, a key example is designing an [individualized approach to tapering medications](https://arxiv.org/abs/2309.11629), and on-going work with UCSF on developing an optimization framework for dose reductions in chemotherapy.
+My work integrates techniques from online optimization, modern statistics and control theory and is focused on developing adaptive methods for **evaluating interventions** and **individualizing interventions** with provable guarantees.
+
+For the former, examples include:
+
+- [**identifying disparities across subgroups in incident databases**](https://arxiv.org/abs/2502.08166)
+- [**proposing a variance-optimal sequential experiment design**](https://arxiv.org/abs/2305.17187)
+- [**designing methodology for valid post-causal-discovery inference**](https://arxiv.org/abs/2208.05949)
+
+For the latter, a key example is designing an [individualized approach to tapering medications](https://arxiv.org/abs/2309.11629), and on-going work with UCSF on developing an optimization framework for dose reductions in chemotherapy.
 
 </section>
 
@@ -17,7 +25,15 @@ My work integrates techniques from online optimization, modern statistics and co
 
 Je suis en cinquième année de doctorat en EECS à UC Berkeley, sous la direction de [Ben Recht](http://people.eecs.berkeley.edu/~brecht/index.html) et [Michael Jordan](http://people.eecs.berkeley.edu/~jordan/). Auparavant, j'ai eu la grande chance d'être encadrée par [Elad Hazan](https://www.cs.princeton.edu/~ehazan/) (à Princeton), qui m'a appris le métier de la recherche.
 
-Mes travaux mêlent optimisation en ligne, statistique moderne et théorie du contrôle, et portent sur le développement de méthodes adaptatives pour **évaluer les interventions** et **individualiser les interventions**, avec des garanties démontrables. Pour le premier volet, on peut citer : [l'identification de disparités entre sous-groupes dans les bases de données d'incidents](https://arxiv.org/abs/2502.08166), [la proposition d'un plan d'expérience séquentiel à variance optimale](https://arxiv.org/abs/2305.17187), et [la conception d'une méthodologie d'inférence valide après découverte causale](https://arxiv.org/abs/2208.05949). Pour le second, un exemple central est [une approche individualisée de la réduction progressive des médicaments](https://arxiv.org/abs/2309.11629), ainsi que des travaux en cours avec l'UCSF visant à développer un cadre d'optimisation pour la réduction des doses en chimiothérapie.
+Mes travaux mêlent optimisation en ligne, statistique moderne et théorie du contrôle, et portent sur le développement de méthodes adaptatives pour **évaluer les interventions** et **individualiser les interventions**, avec des garanties démontrables.
+
+Pour le premier volet, on peut citer :
+
+- [**l'identification de disparités entre sous-groupes dans les bases de données d'incidents**](https://arxiv.org/abs/2502.08166)
+- [**la proposition d'un plan d'expérience séquentiel à variance optimale**](https://arxiv.org/abs/2305.17187)
+- [**la conception d'une méthodologie d'inférence valide après découverte causale**](https://arxiv.org/abs/2208.05949)
+
+Pour le second, un exemple central est [une approche individualisée de la réduction progressive des médicaments](https://arxiv.org/abs/2309.11629), ainsi que des travaux en cours avec l'UCSF visant à développer un cadre d'optimisation pour la réduction des doses en chimiothérapie.
 
 </section>
 
