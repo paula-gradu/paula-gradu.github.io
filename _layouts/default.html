@@ -164,16 +164,23 @@
   .navlink.is-on::before{color:var(--red);}
 
   /* -------- language switcher, top right ------------------------------- */
-  .langbar{
-    /* fixed to the window, so it reads as a global control rather than
-       something belonging to the content column */
+  /* the corner stack: language switcher, and beneath it the track control.
+     Fixed to the window so both read as global rather than belonging to the
+     content column. */
+  .topright{
     position:fixed;
     z-index:5;
     top:1.2rem;
-    height:1.6rem;
     right:1.4rem;
     display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:.75rem;
+  }
+  .langbar{
+    display:flex;
     align-items:center;
+    height:1.6rem;
     gap:.1rem;
     font-size:.82rem;
     letter-spacing:.08em;
@@ -198,10 +205,10 @@
      preload="none", so the file is only fetched if someone actually plays
      it, and there is always a visible control to stop it                 */
   .player{
-    margin-top:1.7rem;
     font-size:.78rem;
     letter-spacing:.04em;
     color:var(--ink-soft);
+    text-align:right;
   }
   .playtoggle{
     display:inline-flex;
@@ -397,7 +404,8 @@
     .sidenav{margin-top:1.6rem;}
     .sidenav ul{display:flex;gap:1.1rem;flex-wrap:wrap;}
     .navlink{padding:.2rem 0 .2rem 1.1rem;font-size:.86rem;}
-    .langbar{position:static;margin-top:1.6rem;justify-content:flex-start;}
+    .topright{position:static;align-items:flex-start;margin-top:1.6rem;gap:.6rem;}
+    .player{text-align:left;}
     h1{margin:1.8rem 0 .5rem;font-size:1.85rem;}
     body{font-size:15px;}
     h3{letter-spacing:.12em;}
@@ -424,18 +432,21 @@
         </ul>
       </nav>
 
+    </aside>
+
+    <div class="topright">
+      <div class="langbar" role="group" aria-label="Language">
+        <a class="langlink" href="#en" data-lang="en" aria-pressed="true">EN</a>
+        <span class="sep">/</span>
+        <a class="langlink" href="#fr" data-lang="fr" aria-pressed="false">FR</a>
+      </div>
+
       <div class="player" hidden>
         <button class="playtoggle" type="button" aria-pressed="false">
           <span class="glyph" aria-hidden="true">▶</span><span class="ptext">Play</span>
         </button>
-        <span class="track">Roses Bloom For You (PG Mix)</span>
+        <span class="track">Roses Bloom for You (Lana Del Rey)</span>
       </div>
-    </aside>
-
-    <div class="langbar" role="group" aria-label="Language">
-      <a class="langlink" href="#en" data-lang="en" aria-pressed="true">EN</a>
-      <span class="sep">/</span>
-      <a class="langlink" href="#fr" data-lang="fr" aria-pressed="false">FR</a>
     </div>
 
     {{ content }}
