@@ -191,6 +191,37 @@
   }
   .langbar .sep{color:var(--rule);}
 
+  /* -------- the Miscellaneous track ------------------------------------
+     preload="none", so the file is only fetched if someone actually plays
+     it, and there is always a visible control to stop it                 */
+  .player{
+    margin-top:1.7rem;
+    font-size:.78rem;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+  }
+  .playtoggle{
+    display:inline-flex;
+    align-items:center;
+    gap:.45rem;
+    padding:.28rem .62rem;
+    background:none;
+    border:1px solid var(--rule);
+    color:var(--red);
+    font:inherit;
+    letter-spacing:.06em;
+    cursor:var(--cur-hover),pointer;
+    transition:color .15s ease,border-color .15s ease;
+  }
+  .playtoggle:hover{color:var(--blue-ink);border-color:var(--blue-ink);}
+  .playtoggle:focus-visible{outline:2px solid var(--blue-ink);outline-offset:2px;}
+  .player .track{
+    display:block;
+    margin-top:.55rem;
+    font-style:italic;
+    opacity:.85;
+  }
+
   /* -------- name and contact ------------------------------------------- */
   h1{
     margin:var(--top) 0 .5rem;
@@ -387,6 +418,13 @@
           <li><a class="navlink" href="#links" data-target="links">Miscellaneous</a></li>
         </ul>
       </nav>
+
+      <div class="player" hidden>
+        <button class="playtoggle" type="button" aria-pressed="false">
+          <span class="glyph" aria-hidden="true">▶</span><span class="ptext">Play</span>
+        </button>
+        <span class="track">Roses Bloom For You (PG Mix)</span>
+      </div>
     </aside>
 
     <div class="langbar" role="group" aria-label="Language">
@@ -398,6 +436,9 @@
     {{ content }}
 
   </main>
+
+  <audio id="tune" preload="none"
+         src="{{ '/assets/roses-bloom-for-you.mp3' | relative_url }}?v={{ site.assets_v }}"></audio>
 
   <div class="signoff">
     <span class="moon">☽ ✦ ☾</span>
@@ -411,8 +452,8 @@
   body.classList.add('has-js');
 
   var LABELS={
-    en:{home:'About',publications:'Research',links:'Miscellaneous'},
-    fr:{home:'\u00c0 propos',publications:'Recherche',links:'Divers'}
+    en:{home:'About',publications:'Research',links:'Miscellaneous',play:'Play',pause:'Pause'},
+    fr:{home:'\u00c0 propos',publications:'Recherche',links:'Divers',play:'Lecture',pause:'Pause'}
   };
 
   function store(k,v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v); }catch(e){ return null; } }
@@ -425,11 +466,15 @@
   var langLinks=[].slice.call(document.querySelectorAll('.langlink'));
   var panes=[].slice.call(document.querySelectorAll('.pane'));
   var i18n=[].slice.call(document.querySelectorAll('[data-fr]'));
+  var tune=document.getElementById('tune');
+  var player=document.querySelector('.player');
+  var toggle=document.querySelector('.playtoggle');
+  if(tune) tune.volume=.7;
   if(!navLinks.some(function(b){return b.getAttribute('data-target')===pane;})) pane='home';
 
   i18n.forEach(function(el){ el.setAttribute('data-en', el.textContent); });
 
-  function render(){
+  function render(userClick){
     root.setAttribute('lang', lang);
     navLinks.forEach(function(b){
       var t=b.getAttribute('data-target');
@@ -445,7 +490,23 @@
     i18n.forEach(function(el){
       el.textContent = (lang==='fr') ? el.getAttribute('data-fr') : el.getAttribute('data-en');
     });
-    root.classList.toggle('cosmos-mode', pane==='links');
+    var onLinks = pane==='links';
+    root.classList.toggle('cosmos-mode', onLinks);
+
+    if(player) player.hidden = !onLinks;
+    if(tune){
+      if(!onLinks){
+        tune.pause();
+        try{ tune.currentTime=0; }catch(e){}
+      }else if(userClick){
+        /* a click is a user gesture, so this is allowed to make sound;
+           on a restored visit there is no gesture and it would be blocked,
+           so we just leave the control sitting there ready to be pressed */
+        var r=tune.play();
+        if(r && r.catch) r.catch(function(){});
+      }
+      syncPlayer();
+    }
     var pic=document.getElementById('portrait');
     if(pic){
       var want=pic.getAttribute(pane==='links'?'data-cosmos':'data-default');
@@ -458,18 +519,35 @@
     });
   }
 
+  function syncPlayer(){
+    if(!tune||!toggle) return;
+    var playing = !tune.paused && !tune.ended;
+    toggle.querySelector('.glyph').textContent = playing ? '❚❚' : '▶';
+    toggle.querySelector('.ptext').textContent = LABELS[lang][playing?'pause':'play'];
+    toggle.setAttribute('aria-pressed', playing?'true':'false');
+  }
+  if(toggle){
+    toggle.addEventListener('click', function(){
+      if(tune.paused){ var r=tune.play(); if(r&&r.catch) r.catch(function(){}); }
+      else tune.pause();
+    });
+  }
+  if(tune){
+    ['play','pause','ended'].forEach(function(ev){ tune.addEventListener(ev, syncPlayer); });
+  }
+
   navLinks.forEach(function(b){
     b.addEventListener('click', function(e){
-      e.preventDefault(); pane=b.getAttribute('data-target'); store('pg.pane',pane); render();
+      e.preventDefault(); pane=b.getAttribute('data-target'); store('pg.pane',pane); render(true);
     });
   });
   langLinks.forEach(function(b){
     b.addEventListener('click', function(e){
-      e.preventDefault(); lang=b.getAttribute('data-lang'); store('pg.lang',lang); render();
+      e.preventDefault(); lang=b.getAttribute('data-lang'); store('pg.lang',lang); render(false);
     });
   });
 
-  render();
+  render(false);
 })();
 </script>
 </body>
